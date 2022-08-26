@@ -1,0 +1,19 @@
+@import "../../assets/variables";
+
+.horizontal-img-galery {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: 2em 0;
+    img {
+        flex: 1 1 0;
+        margin: 1px;
+        height: auto;
+        aspect-ratio: 1 1;
+        width: 30vw;
+        height: 30vw;
+        box-shadow: 1px 1px 1px $secondary-dark;
+    }
+}

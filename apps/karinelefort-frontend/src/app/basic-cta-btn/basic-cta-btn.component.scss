@@ -1,0 +1,39 @@
+@import "../../assets/variables";
+
+.basic-cta-btn {
+    margin-right: 8px;
+    border: 1px solid transparent;
+    padding: 1.5em;
+    position: relative;
+    background-color: $secondary;
+    transition: 0.2s;
+    cursor: pointer;
+
+    .basic-cta-btn__outline {
+        position: absolute;
+        border: 1px solid $primary;
+        height: 100%;
+        width: 100%;
+        inset: 4px;
+        transition: 0.2s;
+        z-index: -1;
+    }
+    &:hover {
+        background-color: $primary-light;
+        border: 1px solid $secondary;
+        color: $primary-dark;
+        .basic-cta-btn__outline {
+            inset: -7%;
+            z-index: 1;
+        }
+    }
+    &:active {
+        background-color: $primary-light;
+        border: 1px solid $secondary;
+        color: $secondary;
+        .basic-cta-btn__outline {
+            inset: 2%;
+            z-index: -1;
+        }
+    }
+}

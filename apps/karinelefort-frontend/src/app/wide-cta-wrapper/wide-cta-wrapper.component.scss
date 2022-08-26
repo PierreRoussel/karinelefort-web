@@ -1,0 +1,43 @@
+@import "../../assets/variables";
+
+.cta-wrapper {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    width: 100%;
+    margin: 2em 0;
+    padding: 2em 0;
+    background-color: $secondary;
+    h2 {
+        text-indent: 2em;
+        align-self: flex-start;
+        text-align: left;
+    }
+    .cta-wrapper__inner {
+        position: absolute;
+        height: 99%;
+        width: 97%;
+        left: 3%;
+        top: 2%;
+        border: 1px solid $secondary-dark;
+    }
+
+    .cta-wrapper__content {
+        width: 90%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        z-index: 1;
+    }
+}
+
+@media screen and (min-width: 652px) {
+    .cta-wrapper {
+        .cta-wrapper__content {
+            flex-direction: row;
+        }
+    }
+}

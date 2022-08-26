@@ -1,0 +1,27 @@
+@import "../../assets/variables";
+
+.text-banner {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: $primary-light;
+    color: $secondary;
+    margin: 3em 0;
+    padding: 3em;
+    text-align: center;
+    .text-banner--title {
+        font-family: "P22_Cezanne_Pro_Regular";
+        font-size: 1.8em;
+    }
+}
+
+@media screen and (min-width: 652px) {
+    .text-banner {
+        display: flex;
+        flex-direction: row;
+    }
+    p {
+        flex: 1 1 0;
+    }
+}

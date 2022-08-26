@@ -1,0 +1,17 @@
+<div [ngClass]="'side-nav--container ' + [status ? 'displayed' : '']">
+  <div class="side-nav__overlay" (click)="(status)"></div>
+  <div class="side-nav">
+    <span class="side-nav--title">
+      Karine Lefort <br />
+      Photographie
+    </span>
+    <button (click)="(status)" class="side-nav__close--button">X</button>
+    <div class="side-nav__link">Accueil</div>
+    <div class="side-nav__link">Confiance en soi</div>
+    <div class="side-nav__link">Grossesse</div>
+    <div class="side-nav__link">Nouveau-né</div>
+    <div class="side-nav__link">Mariage</div>
+    <div class="side-nav__link">Infos&Tarifs</div>
+    <div class="side-nav__link">A propos</div>
+  </div>
+</div>

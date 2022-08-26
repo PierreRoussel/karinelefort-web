@@ -1,0 +1,14 @@
+.info-bubble-wrapper {
+    margin: 2.5em;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+@media screen and (min-width: 652px) {
+    .info-bubble-wrapper {
+        flex-direction: row;
+    }
+}

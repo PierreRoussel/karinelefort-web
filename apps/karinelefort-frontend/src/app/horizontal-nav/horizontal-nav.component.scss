@@ -1,0 +1,34 @@
+@import "../../assets/variables";
+
+.horizontal-nav {
+    background-color: $secondary;
+    height: 75px;
+    width: 95%;
+    margin: auto;
+    color: $primary;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    position: relative;
+    align-items: center;
+    transition: 0.5s;
+
+    .horizontal-nav--inner {
+        width: 100%;
+        height: 75px;
+        position: absolute;
+        border: 3px solid $secondary;
+        top: 3px;
+        left: 3px;
+        z-index: -1;
+    }
+    .horizontal-nav__link {
+        margin: 1.5vw;
+        cursor: pointer;
+        &:hover,
+        &:active,
+        &:focus {
+            color: $primary-light;
+        }
+    }
+}
