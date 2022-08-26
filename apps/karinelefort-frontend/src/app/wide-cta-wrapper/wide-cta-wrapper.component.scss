@@ -12,6 +12,7 @@
     background-color: $secondary;
     h2 {
         text-indent: 2em;
+        z-index: 1;
         align-self: flex-start;
         text-align: left;
     }
@@ -40,8 +41,23 @@
 
 @media screen and (min-width: 652px) {
     .cta-wrapper {
+        height: 100%;
+        padding: 1em 0;
+        margin-bottom: 10em;
+        .cta-wrapper__inner {
+            top: 10%;
+            height: 94%;
+            width: 95%;
+        }
         .cta-wrapper__content {
+            justify-content: space-between;
             flex-direction: row;
+            .cta-wrapper__content--item {
+                margin: 0 2em;
+                &:nth-child(2n) {
+                    transform: translateY(15%);
+                }
+            }
         }
     }
 }

@@ -1,3 +1,5 @@
+@import "../../../assets/variables";
+
 .testimonial-img-with-text {
     display: flex;
     flex-direction: column;
@@ -30,12 +32,12 @@
             align-self: flex-start;
             display: block;
             position: relative;
-            text-shadow: 0 0 2px rgb(255, 255, 255);
             .inner__text--container {
                 position: absolute;
                 top: 6vh;
+                background-color: rgba($secondary, 0.9);
                 width: 15em;
-                mix-blend-mode: multiply;
+                padding: 1em;
             }
         }
     }

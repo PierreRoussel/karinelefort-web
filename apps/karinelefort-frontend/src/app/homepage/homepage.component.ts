@@ -46,7 +46,7 @@ export class HomepageComponent implements OnInit {
       backgroundColor: '#52909e',
     },
     {
-      caller: "besoin d' renseignement",
+      caller: "besoin d'un renseignement",
       service: 'contactez moi',
       image: {
         url: '../../assets/615a17326ab84037154751.jpg',
@@ -64,6 +64,16 @@ export class HomepageComponent implements OnInit {
       },
       link: '/#',
       backgroundColor: '#1f6270',
+    },
+    {
+      caller: 'réserver',
+      service: 'une séance',
+      image: {
+        url: '../../assets/278304567_708203026882538_4413979470828640160_n.jpg',
+        alt: '',
+      },
+      link: '/#',
+      backgroundColor: '#beb9ae',
     },
   ];
 
