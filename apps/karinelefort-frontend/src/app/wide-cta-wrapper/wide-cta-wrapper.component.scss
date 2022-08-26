@@ -31,6 +31,10 @@
         justify-content: space-around;
         align-items: center;
         z-index: 1;
+
+        .cta-wrapper__content--item {
+            width: 100%;
+        }
     }
 }
 

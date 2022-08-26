@@ -2,9 +2,8 @@
   <div class="cta-wrapper__inner"></div>
   <h2>Découvrez mon univers</h2>
   <div class="cta-wrapper__content">
-    <karinelefort-web-wide-cta></karinelefort-web-wide-cta>
-    <karinelefort-web-wide-cta></karinelefort-web-wide-cta>
-    <karinelefort-web-wide-cta></karinelefort-web-wide-cta>
-    <karinelefort-web-wide-cta></karinelefort-web-wide-cta>
+    <div class="cta-wrapper__content--item" *ngFor="let item of ctaItems">
+      <karinelefort-web-wide-cta [ctaItem]="item"></karinelefort-web-wide-cta>
+    </div>
   </div>
 </div>

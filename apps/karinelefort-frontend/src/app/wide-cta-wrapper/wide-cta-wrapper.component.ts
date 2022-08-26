@@ -1,4 +1,5 @@
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import { CtaWrapper } from '../../types/cta';
 
 @Component({
   selector: 'karinelefort-web-wide-cta-wrapper',
@@ -6,8 +7,6 @@ import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
   styleUrls: ['./wide-cta-wrapper.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class WideCtaWrapperComponent implements OnInit {
-  constructor() {}
-
-  ngOnInit(): void {}
+export class WideCtaWrapperComponent {
+  @Input() ctaItems: CtaWrapper[] = [];
 }
