@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CtaWrapper } from '../../types/cta';
 import { Image } from '../../types/images';
+import { TextWithLink } from '../../types/object';
 
 @Component({
   selector: 'karinelefort-web-home-page',
@@ -63,6 +64,18 @@ export class HomepageComponent implements OnInit {
       },
       link: '/#',
       backgroundColor: '#1f6270',
+    },
+  ];
+
+  public bubbles: TextWithLink[] = [
+    {
+      text: 'Horaires: de 9h-12 à 14h-18',
+    },
+    {
+      text: 'Les réservations: En fonction de la séance souhaitée et de mon agenda, prévoir votre séance assez tôt',
+    },
+    {
+      text: 'Foire aux questions',
     },
   ];
   ngOnInit(): void {

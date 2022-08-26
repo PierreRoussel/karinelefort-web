@@ -1,4 +1,5 @@
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import { TextWithLink } from '../../types/object';
 
 @Component({
   selector: 'karinelefort-web-info-buble-wrapper',
@@ -6,8 +7,6 @@ import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
   styleUrls: ['./info-buble-wrapper.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class InfoBubleWrapperComponent implements OnInit {
-  constructor() {}
-
-  ngOnInit(): void {}
+export class InfoBubleWrapperComponent {
+  @Input() bubbles: TextWithLink[] = [];
 }
