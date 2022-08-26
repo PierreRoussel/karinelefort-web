@@ -1,4 +1,10 @@
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  Input,
+  OnInit,
+} from '@angular/core';
+import { Image } from '../../types/images';
 
 @Component({
   selector: 'karinelefort-web-horizontal-img-galery',
@@ -7,7 +13,17 @@ import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class HorizontalImgGaleryComponent implements OnInit {
-  constructor() {}
+  @Input() images: Image[] = [];
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    console.log('imags ', this.images);
+    const userAgent = navigator.userAgent;
+    if (
+      /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini|Mobile|mobile|CriOS/i.test(
+        userAgent
+      )
+    )
+      this.images.length = 6;
+    else this.images.length = 5;
+  }
 }

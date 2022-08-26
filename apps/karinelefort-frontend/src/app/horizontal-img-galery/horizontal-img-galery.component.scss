@@ -6,14 +6,17 @@
     justify-content: space-around;
     flex-direction: row;
     flex-wrap: wrap;
-    margin: 2em 0;
-    img {
-        flex: 1 1 0;
+    margin: 2em 0 3em 0;
+    .horizontal-img-galery__img {
+        flex: 1 0 30%;
         margin: 1px;
         height: auto;
         aspect-ratio: 1 1;
-        width: 30vw;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-color: $secondary;
         height: 30vw;
-        box-shadow: 1px 1px 1px $secondary-dark;
+        width: auto;
+        box-shadow: 1px 1px 4px $secondary-dark;
     }
 }
