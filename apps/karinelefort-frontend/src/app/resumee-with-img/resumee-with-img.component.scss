@@ -18,3 +18,48 @@
         }
     }
 }
+
+@media screen and (min-width: 652px) {
+    .resumee-with-img {
+        display: flex;
+        flex-direction: row;
+        width: 80vw;
+        padding: 6em 2em;
+        margin: 10em auto;
+        z-index: -1;
+
+        .resumee-with-img__left {
+            display: flex;
+            flex-direction: column;
+            align-self: center;
+            justify-content: flex-start;
+            align-items: flex-start;
+            width: 100%;
+            padding: 5em;
+            p {
+                font-size: 1.1em;
+            }
+            .left__quote {
+                line-height: 10rem;
+                font-size: 2.5em;
+            }
+        }
+
+        .resumee-with-img__right {
+            position: relative;
+            min-height: 30em;
+            background-repeat: no-repeat;
+            background-size: cover;
+            width: 30em;
+            margin-right: 4em;
+            .resumee-with-img__right--inner {
+                position: absolute;
+                height: 100%;
+                width: 100%;
+                inset: 1em;
+                mix-blend-mode: darken;
+                border: 3px solid $secondary-dark;
+            }
+        }
+    }
+}

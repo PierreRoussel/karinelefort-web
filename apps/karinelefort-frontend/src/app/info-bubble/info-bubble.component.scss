@@ -8,3 +8,10 @@
     background-color: $primary-light;
     box-shadow: 1px 1px 4px $secondary-dark;
 }
+
+@media screen and (min-width: 652px) {
+    .info-bubble {
+        font-size: 1.1em;
+        padding: 2em;
+    }
+}
