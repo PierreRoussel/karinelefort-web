@@ -14,7 +14,7 @@
             font-size: 1.8em;
             padding-left: 0.5em;
             line-height: 3rem;
-            border-left: 0.3em solid $primary-dark;
+            border-left: 0.3em solid $primary;
         }
     }
 }
@@ -23,9 +23,7 @@
     .resumee-with-img {
         display: flex;
         flex-direction: row;
-        width: 80vw;
-        padding: 6em 2em;
-        margin: 10em auto;
+        padding: 2em 15vw;
         z-index: -1;
 
         .resumee-with-img__left {
@@ -50,7 +48,9 @@
             min-height: 30em;
             background-repeat: no-repeat;
             background-size: cover;
-            width: 30em;
+            background-position: center;
+            width: 35em;
+            border-radius: 3px;
             margin-right: 4em;
             .resumee-with-img__right--inner {
                 position: absolute;

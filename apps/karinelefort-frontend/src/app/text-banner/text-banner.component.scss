@@ -18,7 +18,9 @@
 
 @media screen and (min-width: 652px) {
     .text-banner {
+        margin-top: 12em;
         display: flex;
+        padding: 5em 15em;
         flex-direction: row;
     }
     p {

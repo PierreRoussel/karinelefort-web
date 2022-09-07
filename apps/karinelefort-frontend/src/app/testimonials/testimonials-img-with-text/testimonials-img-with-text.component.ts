@@ -5,10 +5,11 @@ import { Component, Input } from '@angular/core';
   templateUrl: './testimonials-img-with-text.component.html',
   styleUrls: ['./testimonials-img-with-text.component.scss'],
 })
-export class TestimonialsImgWithTextComponent{
-   @Input() imgSrc = "";
-   @Input() testimonial = "";
-   @Input() customer = "";
-   @Input() title = "";
-   @Input() direction = "row";
+export class TestimonialsImgWithTextComponent {
+  @Input() imgSrc = '';
+  @Input() testimonial = '';
+  @Input() customer = '';
+  @Input() title = '';
+  @Input() text = '';
+  @Input() direction = 'row';
 }

@@ -44,6 +44,10 @@
 @media screen and (min-width: 652px) {
     .navbar {
         flex-direction: column;
+        .navbar__title {
+            line-height: 10rem;
+            font-size: 2.5em;
+        }
         .navbar__side--container,
         .navbar__burger-menu--button {
             display: none;

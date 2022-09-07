@@ -4,6 +4,7 @@
   </h2>
   <div
     class="testimonial-img-with-text__inner"
+    [ngClass]="direction"
     [ngStyle]="{ 'flex-direction': direction }"
   >
     <div
@@ -11,13 +12,14 @@
       [ngStyle]="{ 'background-image': 'url(' + imgSrc + ')' }"
       alt="Image issue d'un shooting client."
     ></div>
-    <p class="testimonial-img-with-text__inner--text">
+    <div class="testimonial-img-with-text__inner--text">
       <span
         class="inner__text--container"
         [ngStyle]="{ left: direction === 'row-reverse' ? '1em' : '-100%' }"
       >
         <span>“ {{ testimonial }} ” </span><span>- {{ customer }}.</span>
       </span>
-    </p>
+    </div>
   </div>
+  <p class="testimonial-img-with-text__sub-text">{{ text }}</p>
 </div>

@@ -23,6 +23,7 @@
         justify-content: space-evenly;
         align-items: center;
         text-align: center;
+        overflow: hidden;
         height: 8em;
         i {
             font-size: 1.5em;
@@ -31,6 +32,8 @@
         .content__cta-title {
             text-transform: uppercase;
             letter-spacing: 0.1em;
+            max-width: 80%;
+            text-overflow: ellipsis;
         }
     }
 
@@ -45,11 +48,12 @@
 @media screen and (min-width: 652px) {
     .wide-cta {
         .wide-cta__content {
-            height: 16em;
+            height: 20em;
             mix-blend-mode: luminosity;
         }
         .wide-cta__img {
-            height: 18em;
+            height: 20em;
+            background-position: center;
         }
     }
 }

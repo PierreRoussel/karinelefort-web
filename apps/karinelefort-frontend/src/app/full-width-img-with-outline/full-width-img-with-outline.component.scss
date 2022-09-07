@@ -1,10 +1,12 @@
+@import "../../assets/variables";
+
 .img__container {
     width: 100vw;
     margin: 1em 0;
     height: auto;
     position: relative;
     .img__inner {
-        border: 1px solid black;
+        border: 2px solid $secondary-dark;
         inset: 2px;
         z-index: -1;
         width: 100%;
@@ -14,6 +16,7 @@
 
     .img__img {
         width: 100%;
+        border-radius: 2px;
         height: 20em;
         background-size: cover;
     }
@@ -34,9 +37,10 @@
         position: relative;
         .img__img {
             width: 99%;
+            background-position-x: center;
             background-size: 100% auto;
             background-repeat: no-repeat;
-            height: 75vh;
+            height: 68vh;
         }
 
         .img__tail {

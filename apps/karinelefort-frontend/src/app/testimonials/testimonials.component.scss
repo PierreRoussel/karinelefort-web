@@ -35,3 +35,32 @@
         width: 95%;
     }
 }
+
+@media screen and (min-width: 652px) {
+    .testimonials {
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        $inner-width: 50%;
+        .testimonials__background {
+            width: calc($inner-width/2.5);
+            height: calc($inner-width * 2.05);
+        }
+        .testimonials__inner {
+            padding: 0;
+            width: $inner-width;
+            justify-content: space-evenly;
+            align-items: center;
+            flex-direction: row;
+
+            .testimonials__inner-part {
+                margin: 1em;
+                width: 100%;
+            }
+        }
+        .testimonials__footer {
+            padding: 1em 0;
+            width: calc($inner-width/1.5);
+        }
+    }
+}

@@ -2,7 +2,7 @@
 
 .horizontal-nav {
     background-color: $secondary;
-    height: 75px;
+    height: 90px;
     width: 95%;
     margin: auto;
     color: $primary;
@@ -12,17 +12,17 @@
     position: relative;
     align-items: center;
     transition: 0.5s;
-
+    border-radius: 2px;
     .horizontal-nav--inner {
-        width: 100%;
-        height: 75px;
-        position: absolute;
-        border: 3px solid $secondary;
-        top: 3px;
-        left: 3px;
+        inset: 5px;
         z-index: -1;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        border: 2px solid $secondary-dark;
     }
     .horizontal-nav__link {
+        font-size: 1.4em;
         margin: 1.5vw;
         cursor: pointer;
         &:hover,
