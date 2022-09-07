@@ -15,8 +15,21 @@
         background-size: cover;
         background-repeat: no-repeat;
         background-color: $secondary;
+        background-position: center;
         height: 30vw;
         width: auto;
         box-shadow: 1px 1px 4px $secondary-dark;
+    }
+}
+
+@media screen and (min-width: 652px) {
+    .horizontal-img-galery {
+        margin: 4em 0;
+        .horizontal-img-galery__img {
+            height: 16vw;
+            margin: 0.15vw;
+            flex: 1 0 16vw;
+            box-shadow: 1px 1px 4px black;
+        }
     }
 }

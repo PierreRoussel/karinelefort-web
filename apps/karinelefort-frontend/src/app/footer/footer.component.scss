@@ -54,8 +54,12 @@
 
 @media screen and (min-width: 652px) {
     .footer {
+        height: 40vh;
+        font-size: 1.2em;
+        justify-content: space-around;
+
         .footer__inner {
-            height: 88%;
+            height: 91%;
             width: 98%;
             left: 1%;
             top: 5%;
@@ -64,6 +68,24 @@
             width: 100%;
             flex-direction: row;
             justify-content: space-evenly;
+            p,
+            div {
+                flex: 1 1 0;
+            }
+
+            .content__right {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                .separator {
+                    max-width: 2vw;
+                }
+                .content__right--rs-container {
+                    margin-top: 0.5em;
+                    max-width: 5vw;
+                }
+            }
         }
     }
 }
