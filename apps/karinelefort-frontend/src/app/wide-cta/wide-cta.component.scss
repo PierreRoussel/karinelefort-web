@@ -26,7 +26,7 @@
         overflow: hidden;
         height: 8em;
         i {
-            font-size: 1.5em;
+            font-size: 2em;
             font-family: "P22_Cezanne_Pro_Regular";
         }
         .content__cta-title {
@@ -50,6 +50,9 @@
         .wide-cta__content {
             height: 20em;
             mix-blend-mode: luminosity;
+            i {
+                width: 6em;
+            }
         }
         .wide-cta__img {
             height: 20em;

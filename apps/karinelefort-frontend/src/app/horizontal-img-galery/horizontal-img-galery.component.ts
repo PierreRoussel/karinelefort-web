@@ -1,9 +1,4 @@
-import {
-  ChangeDetectionStrategy,
-  Component,
-  Input,
-  OnInit,
-} from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { Image } from '../../types/images';
 
 @Component({
@@ -12,18 +7,17 @@ import { Image } from '../../types/images';
   styleUrls: ['./horizontal-img-galery.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class HorizontalImgGaleryComponent implements OnInit {
+export class HorizontalImgGaleryComponent {
   @Input() images: Image[] = [];
 
-  ngOnInit(): void {
-    console.log('imags ', this.images);
-    const userAgent = navigator.userAgent;
-    if (
-      /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini|Mobile|mobile|CriOS/i.test(
-        userAgent
-      )
-    )
-      this.images.length = 6;
-    else this.images.length = 5;
-  }
+  // ngOnInit(): void {
+  // const userAgent = navigator.userAgent;
+  // if (
+  //   /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini|Mobile|mobile|CriOS/i.test(
+  //     userAgent
+  //   )
+  // )
+  //   this.images.length = 6;
+  // else this.images.length = 5;
+  // }
 }
