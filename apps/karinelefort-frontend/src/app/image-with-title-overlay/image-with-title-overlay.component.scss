@@ -1,0 +1,42 @@
+@import "../../assets/variables";
+
+.image-with-title {
+  position: relative;
+  cursor: pointer;
+
+  .image-with-title__inner {
+    position: relative;
+    overflow: hidden;
+    height: 370px;
+    width: 370px;
+    text-align: center;
+    img {
+      margin-right: auto;
+      height: 100%;
+    }
+  }
+  .image-with-title__overlay {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    bottom: 0;
+    height: 44px;
+    width: 100%;
+    background-color: rgba($secondary-light, 0.6);
+    transition: .3s;
+
+  }
+  &:hover {
+    .image-with-title__overlay {
+      height: 370px;
+      font-size: 2rem;
+      background-color: rgba($secondary-light, 0.9);
+    }
+  }
+  @media screen and (min-width: 652px) {
+    .image-with-title__inner {
+      width: 20vw;
+    }
+  }
+}

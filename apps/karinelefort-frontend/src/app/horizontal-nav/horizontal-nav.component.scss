@@ -25,10 +25,16 @@
         font-size: 1.4em;
         margin: 1.5vw;
         cursor: pointer;
+        text-decoration: none;
+        color: $secondary-darken;
+        mix-blend-mode: darken;
         &:hover,
         &:active,
         &:focus {
             color: $primary-light;
+        }
+        &.active {
+          color: $primary;
         }
     }
 }

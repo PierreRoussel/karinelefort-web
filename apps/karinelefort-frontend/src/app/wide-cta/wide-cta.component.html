@@ -1,6 +1,7 @@
 <div
   class="wide-cta"
   *ngIf="ctaItem"
+  (click)="redirect()"
   [ngStyle]="{ 'background-color': ctaItem.backgroundColor }"
 >
   <div class="wide-cta__content">

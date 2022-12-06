@@ -32,7 +32,7 @@ export class HomepageComponent implements OnInit {
         url: '../../assets/62c58e2f4d4d7603225062.jpg',
         alt: '',
       },
-      link: '/#',
+      link: "https://www.fotostudio.io/client/reservation/61105",
       backgroundColor: '#83c0cf',
     },
     {
@@ -42,7 +42,7 @@ export class HomepageComponent implements OnInit {
         url: '../../assets/616c731a3c80f796838716.jpg',
         alt: '',
       },
-      link: '/#',
+      link: '/galerie',
       backgroundColor: '#52909e',
     },
     {
@@ -72,7 +72,7 @@ export class HomepageComponent implements OnInit {
         url: '../../assets/278304567_708203026882538_4413979470828640160_n.jpg',
         alt: '',
       },
-      link: '/#',
+      link: "https://www.fotostudio.io/client/reservation/61105",
       backgroundColor: '#beb9ae',
     },
   ];

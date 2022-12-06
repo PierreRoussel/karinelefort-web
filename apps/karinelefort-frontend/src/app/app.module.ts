@@ -19,7 +19,11 @@ import { TextBannerComponent } from './text-banner/text-banner.component';
 import { HorizontalImgGaleryComponent } from './horizontal-img-galery/horizontal-img-galery.component';
 import { BasicCtaBtnComponent } from './basic-cta-btn/basic-cta-btn.component';
 import { TestimonialsImgWithTextComponent } from './testimonials/testimonials-img-with-text/testimonials-img-with-text.component';
-
+import { GaleryComponent } from './galery/galery.component';
+import { AppRoutingRoutingModule } from './app-routing/app-routing-routing.module';
+import { ImageWithTitleOverlayComponent } from './image-with-title-overlay/image-with-title-overlay.component';
+import { CitationFWComponent } from './citation-fw/citation-fw.component';
+import { RewardsComponent } from './rewards/rewards.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -40,8 +44,12 @@ import { TestimonialsImgWithTextComponent } from './testimonials/testimonials-im
     HorizontalImgGaleryComponent,
     BasicCtaBtnComponent,
     TestimonialsImgWithTextComponent,
+    GaleryComponent,
+    ImageWithTitleOverlayComponent,
+    CitationFWComponent,
+    RewardsComponent
   ],
-  imports: [BrowserModule],
+  imports: [BrowserModule, AppRoutingRoutingModule],
   providers: [],
   bootstrap: [AppComponent],
 })
