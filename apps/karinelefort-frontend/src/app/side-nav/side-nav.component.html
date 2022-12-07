@@ -6,12 +6,10 @@
       Photographie
     </span>
     <button (click)="(status)" class="side-nav__close--button">X</button>
-    <a [routerLink]="['/']" class="side-nav__link">Accueil</a>
-    <a [routerLink]="['/galerie']" class="side-nav__link">Confiance en soi</a>
-    <a [routerLink]="['/']" class="side-nav__link">Grossesse</a>
-    <a [routerLink]="['/']" class="side-nav__link">Nouveau-né</a>
-    <a [routerLink]="['/']" class="side-nav__link">Mariage</a>
-    <a [routerLink]="['/']" class="side-nav__link">Infos&Tarifs</a>
-    <a [routerLink]="['/']" class="side-nav__link">A propos</a>
+    <a [routerLinkActiveOptions]="{exact: true}" [routerLinkActive]="['active']" [routerLink]="['/']" class="side-nav__link">Accueil</a>
+    <a [routerLinkActive]="['active']" [routerLink]="['/galerie']" class="side-nav__link">Mes galeries</a>
+    <a [routerLinkActive]="['active']" [routerLink]="['/prestations']" class="side-nav__link">Prestations</a>
+    <a [routerLinkActive]="['active']" [routerLink]="['/galeries-privees']" class="side-nav__link">Vos photos</a>
+    <a [routerLinkActive]="['active']" [routerLink]="['/info-et-tarifs']" class="side-nav__link">Infos&Tarifs</a>
   </div>
 </div>

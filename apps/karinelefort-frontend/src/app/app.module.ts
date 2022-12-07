@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppComponent } from './app.component';
 import { HomepageComponent } from './homepage/homepage.component';
@@ -24,6 +25,10 @@ import { AppRoutingRoutingModule } from './app-routing/app-routing-routing.modul
 import { ImageWithTitleOverlayComponent } from './image-with-title-overlay/image-with-title-overlay.component';
 import { CitationFWComponent } from './citation-fw/citation-fw.component';
 import { RewardsComponent } from './rewards/rewards.component';
+import { PageHeaderComponent } from './page-header/page-header.component';
+import { PrestationsComponent } from './prestations/prestations.component';
+import { PrivateGaleriesComponent } from './private-galeries/private-galeries.component';
+import { PrivateGaleryComponent } from './private-galery/private-galery.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -47,9 +52,13 @@ import { RewardsComponent } from './rewards/rewards.component';
     GaleryComponent,
     ImageWithTitleOverlayComponent,
     CitationFWComponent,
-    RewardsComponent
+    RewardsComponent,
+    PageHeaderComponent,
+    PrestationsComponent,
+    PrivateGaleriesComponent,
+    PrivateGaleryComponent
   ],
-  imports: [BrowserModule, AppRoutingRoutingModule],
+  imports: [BrowserModule, BrowserAnimationsModule, AppRoutingRoutingModule],
   providers: [],
   bootstrap: [AppComponent],
 })

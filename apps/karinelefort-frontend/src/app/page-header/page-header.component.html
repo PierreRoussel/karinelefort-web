@@ -1,0 +1,16 @@
+<div class="page__header">
+  <div class="header__title">
+    <h1>{{title}}</h1>
+    <span>{{subtitle}}</span>
+  </div>
+  <div class="header__images">
+    <karinelefort-web-image-with-title-overlay
+      *ngFor="let item of tiles; let i = index"
+      [title]="item.title"
+      [link]="item.link"
+      [imgSrc]="item.imgSrc"
+      [delay]="i"
+    >
+  </karinelefort-web-image-with-title-overlay>
+  </div>
+</div>

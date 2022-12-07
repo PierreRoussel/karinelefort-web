@@ -2,11 +2,16 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { GaleryComponent } from '../galery/galery.component';
 import { HomepageComponent } from '../homepage/homepage.component';
+import { InfosTarifsComponent } from '../infos-tarifs/infos-tarifs.component';
+import { PrestationsComponent } from '../prestations/prestations.component';
+import { PrivateGaleriesComponent } from '../private-galeries/private-galeries.component';
 
 const routes: Routes = [
   { path: '', component: HomepageComponent },
   { path: 'galerie', component: GaleryComponent },
-  { path: '', component: HomepageComponent },
+  { path: 'galeries-privees', component: PrivateGaleriesComponent },
+  { path: 'info-et-tarifs', component: InfosTarifsComponent },
+  { path: 'prestations', component: PrestationsComponent },
   { path: '**', component: HomepageComponent}
 ];
 

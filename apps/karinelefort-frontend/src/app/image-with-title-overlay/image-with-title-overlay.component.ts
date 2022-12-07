@@ -7,6 +7,7 @@ import { Component, Input } from '@angular/core';
 })
 export class ImageWithTitleOverlayComponent {
   @Input() title = '';
+  @Input() delay = 0;
   @Input() link = '';
   @Input() imgSrc = '';
 }

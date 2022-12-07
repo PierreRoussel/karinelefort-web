@@ -10,6 +10,8 @@
     height: 370px;
     width: 370px;
     text-align: center;
+    transition: .3s;
+
     img {
       margin-right: auto;
       height: 100%;
@@ -22,6 +24,7 @@
     justify-content: center;
     bottom: 0;
     height: 44px;
+    font-size: 1.8rem;
     width: 100%;
     background-color: rgba($secondary-light, 0.6);
     transition: .3s;
@@ -30,13 +33,18 @@
   &:hover {
     .image-with-title__overlay {
       height: 370px;
-      font-size: 2rem;
-      background-color: rgba($secondary-light, 0.9);
+      background-color: rgba($secondary, .9);
     }
   }
   @media screen and (min-width: 652px) {
     .image-with-title__inner {
       width: 20vw;
+      height: 15vw;
+    }
+    &:hover {
+      .image-with-title__overlay {
+        height: 15vw;
+      }
     }
   }
 }

@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output, OnInit } from '@angular/core';
 
 @Component({
   selector: 'karinelefort-web-side-nav',
@@ -6,10 +6,12 @@ import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from 
   styleUrls: ['./side-nav.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class SideNavComponent {
+export class SideNavComponent implements OnInit {
   private _status = false;
-
-  @Input() 
+  ngOnInit() {
+    this.status = false;
+  }
+  @Input()
   set status(value: boolean) {
     this._status = value;
     this.displayStatusChange.emit();
