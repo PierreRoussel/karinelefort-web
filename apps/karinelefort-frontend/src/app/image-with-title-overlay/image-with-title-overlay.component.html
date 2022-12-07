@@ -1,5 +1,6 @@
 <div class="image-with-title fade-in-bck"
-[ngStyle]="{'animation-delay': delay*120 + 'ms'}">
+[ngStyle]="{'animation-delay': delay*120 + 'ms'}"
+(click)="redirect()">
   <div class="image-with-title__inner">
     <img
       [src]="imgSrc"

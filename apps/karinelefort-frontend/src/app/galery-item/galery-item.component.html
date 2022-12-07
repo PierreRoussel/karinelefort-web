@@ -1,0 +1,12 @@
+<div class="galery-item">
+  <h1 *ngIf="title">{{ title }}</h1>
+  <div class="grid-container" *ngIf="isLoaded">
+    <div class="grid-item" *ngFor="let photo of photos; let i = index">
+      <img
+        [src]="'http://localhost:1337' + photo['attributes'].url.toString()"
+        alt=""
+        srcset=""
+      />
+    </div>
+  </div>
+</div>

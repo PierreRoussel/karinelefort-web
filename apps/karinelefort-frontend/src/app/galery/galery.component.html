@@ -1,9 +1,10 @@
 <div class="galeries">
   <karinelefort-web-page-header
-    title="Galeries"
-    subtitle="retrouvez mes travaux"
-    [tiles]="tiles"
-  ></karinelefort-web-page-header>
+  *ngIf="isLoaded"
+  title="Galeries"
+  subtitle="retrouvez mes travaux"
+  [tiles]="galeries"
+></karinelefort-web-page-header>
   <div class="galeries__content">
     <karinelefort-web-citation-fw
       text="La photographie devient de l'art quand elle dévoile l'âme et révèle l'authenticité du sujet."

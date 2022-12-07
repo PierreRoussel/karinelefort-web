@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { GaleryItemComponent } from '../galery-item/galery-item.component';
 import { GaleryComponent } from '../galery/galery.component';
 import { HomepageComponent } from '../homepage/homepage.component';
 import { InfosTarifsComponent } from '../infos-tarifs/infos-tarifs.component';
@@ -9,6 +10,7 @@ import { PrivateGaleriesComponent } from '../private-galeries/private-galeries.c
 const routes: Routes = [
   { path: '', component: HomepageComponent },
   { path: 'galerie', component: GaleryComponent },
+  { path: 'galerie/:slug', component: GaleryItemComponent },
   { path: 'galeries-privees', component: PrivateGaleriesComponent },
   { path: 'info-et-tarifs', component: InfosTarifsComponent },
   { path: 'prestations', component: PrestationsComponent },

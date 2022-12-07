@@ -6,9 +6,9 @@
   <div class="header__images">
     <karinelefort-web-image-with-title-overlay
       *ngFor="let item of tiles; let i = index"
-      [title]="item.title"
-      [link]="item.link"
-      [imgSrc]="item.imgSrc"
+      [title]="item['attributes'].Nom.toString()"
+      [link]="baseRoute + '/' + item['attributes'].slug.toString()"
+      [imgSrc]="'http://localhost:1337'+item['attributes'].Previsualisation['data']['attributes'].url.toString()"
       [delay]="i"
     >
   </karinelefort-web-image-with-title-overlay>

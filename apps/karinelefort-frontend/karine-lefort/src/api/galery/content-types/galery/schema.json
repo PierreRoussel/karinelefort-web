@@ -35,6 +35,14 @@
     },
     "liked": {
       "type": "json"
+    },
+    "Previsualisation": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false,
+      "required": true
     }
   }
 }

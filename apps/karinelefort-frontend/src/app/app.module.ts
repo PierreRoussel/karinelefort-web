@@ -29,6 +29,7 @@ import { PageHeaderComponent } from './page-header/page-header.component';
 import { PrestationsComponent } from './prestations/prestations.component';
 import { PrivateGaleriesComponent } from './private-galeries/private-galeries.component';
 import { PrivateGaleryComponent } from './private-galery/private-galery.component';
+import { GaleryItemComponent } from './galery-item/galery-item.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -56,7 +57,8 @@ import { PrivateGaleryComponent } from './private-galery/private-galery.componen
     PageHeaderComponent,
     PrestationsComponent,
     PrivateGaleriesComponent,
-    PrivateGaleryComponent
+    PrivateGaleryComponent,
+    GaleryItemComponent
   ],
   imports: [BrowserModule, BrowserAnimationsModule, AppRoutingRoutingModule],
   providers: [],
