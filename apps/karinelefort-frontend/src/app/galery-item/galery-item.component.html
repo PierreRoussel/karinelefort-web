@@ -3,7 +3,7 @@
   <div class="grid-container" *ngIf="isLoaded">
     <div class="grid-item fade-in-bck" *ngFor="let photo of photos; let i = index" [ngStyle]="{'animation-delay': i*80 + 'ms'}">
       <img
-        [src]="'http://localhost:1337' + photo['attributes'].url.toString()"
+        [src]="'https://whale-app-aylrn.ondigitalocean.app' + photo['attributes'].url.toString()"
         alt=""
         srcset=""
       />

@@ -8,7 +8,7 @@
       *ngFor="let item of tiles; let i = index"
       [title]="item['attributes'].Nom.toString()"
       [link]="baseRoute + '/' + item['attributes'].slug.toString()"
-      [imgSrc]="'http://localhost:1337'+item['attributes'].Previsualisation['data']['attributes'].url.toString()"
+      [imgSrc]="'https://whale-app-aylrn.ondigitalocean.app'+item['attributes'].Previsualisation['data']['attributes'].url.toString()"
       [delay]="i"
     >
   </karinelefort-web-image-with-title-overlay>

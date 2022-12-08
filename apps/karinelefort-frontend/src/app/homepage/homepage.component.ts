@@ -133,7 +133,7 @@ export class HomepageComponent implements OnInit {
     const filters = 'publicationState=live&populate=%2A';
     try {
       const res = await axios.get(
-        `http://localhost:1337/api/page-d-accueil?${filters}`,
+        `https://whale-app-aylrn.ondigitalocean.app/api/page-d-accueil?${filters}`,
         config
       );
       this.homepage = res.data.data.attributes;

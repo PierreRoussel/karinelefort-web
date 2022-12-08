@@ -22,7 +22,7 @@ export class GaleryItemComponent implements OnInit {
     }
     const filters = `publicationState=live&filters[is_private][$ne]=true&filters[slug][$eq]=${slug}&populate=photos`;
       try {
-        const res = await (await axios.get(`http://localhost:1337/api/galeries?${filters}`, config)).data.data[0].attributes;
+        const res = await (await axios.get(`https://whale-app-aylrn.ondigitalocean.app/api/galeries?${filters}`, config)).data.data[0].attributes;
         this.photos = res.photos.data;
         this.title = res.Nom
         this.isLoaded = true;

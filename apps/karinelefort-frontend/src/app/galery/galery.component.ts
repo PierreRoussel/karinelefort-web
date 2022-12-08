@@ -16,7 +16,7 @@ export class GaleryComponent implements OnInit {
     }
     const filters = "publicationState=live&filters[is_private][$ne]=true&populate=Previsualisation";
       try {
-        const res = await axios.get(`http://localhost:1337/api/galeries?${filters}`, config);
+        const res = await axios.get(`https://whale-app-aylrn.ondigitalocean.app/api/galeries?${filters}`, config);
         this.galeries = res.data.data;
         this.isLoaded = true;
       } catch (error) {
