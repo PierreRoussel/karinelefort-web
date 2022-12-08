@@ -27,7 +27,6 @@ export class GaleryItemComponent implements OnInit {
         this.title = res.Nom
         this.isLoaded = true;
       } catch (error) {
-        console.log('error', error)
         this.error = error;
       }
   }

@@ -30,6 +30,8 @@ import { PrestationsComponent } from './prestations/prestations.component';
 import { PrivateGaleriesComponent } from './private-galeries/private-galeries.component';
 import { PrivateGaleryComponent } from './private-galery/private-galery.component';
 import { GaleryItemComponent } from './galery-item/galery-item.component';
+import { PrestationItemComponent } from './prestation-item/prestation-item.component';
+import { CtaBannerComponent } from './cta-banner/cta-banner.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -58,7 +60,9 @@ import { GaleryItemComponent } from './galery-item/galery-item.component';
     PrestationsComponent,
     PrivateGaleriesComponent,
     PrivateGaleryComponent,
-    GaleryItemComponent
+    GaleryItemComponent,
+    PrestationItemComponent,
+    CtaBannerComponent
   ],
   imports: [BrowserModule, BrowserAnimationsModule, AppRoutingRoutingModule],
   providers: [],

@@ -1,3 +1,4 @@
+@import "../../assets/variables";
 .page__header {
   display: flex;
   justify-content: center;
@@ -15,6 +16,16 @@
       margin-bottom: 0.5rem;
       font-weight: lighter;
       font-size: 5rem;
+      position: relative;
+      &::after {
+        content: '';
+        width: 10%;
+        height: 1px;
+        background-color: $primary;
+        position: absolute;
+        bottom: 5px;
+        left: 45%;
+      }
     }
   }
   .header__images {

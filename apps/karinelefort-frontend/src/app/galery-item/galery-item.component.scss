@@ -1,11 +1,23 @@
+@import "../../assets/variables";
 .galery-item {
   h1 {
     width: 80%;
-    margin-inline: auto;
+    text-align: center;
+    margin: 4vh auto;
+    position: relative;
+    &::after {
+      content: '';
+      width: 10%;
+      height: 1px;
+      background-color: $primary;
+      position: absolute;
+      bottom: -10px;
+      left: 45%;
+    }
   }
   .grid-container {
-    columns: 5 200px;
-    column-gap: 1.5rem;
+    columns: 5 350px;
+    column-gap: 1rem;
     width: 90%;
     margin: 0 auto;
 
