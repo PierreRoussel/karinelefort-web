@@ -1,4 +1,5 @@
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import { Resumee } from '../../types/object';
 
 @Component({
   selector: 'karinelefort-web-resumee-with-img',
@@ -6,8 +7,6 @@ import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
   styleUrls: ['./resumee-with-img.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ResumeeWithImgComponent implements OnInit {
-  constructor() {}
-
-  ngOnInit(): void {}
+export class ResumeeWithImgComponent {
+  @Input() resumee:Resumee;
 }

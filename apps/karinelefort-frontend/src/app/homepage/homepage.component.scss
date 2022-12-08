@@ -1,9 +1,94 @@
 @import "../../assets/variables";
 
 .separator-title {
-    text-align: center;
-    margin: 3em 2em;
-    color: $primary;
-    font-size: 2.3em;
-    font-weight: lighter;
+  text-align: center;
+  margin: 3em 2em;
+  color: $primary;
+  font-size: 2.3em;
+  font-weight: lighter;
+}
+
+.slide-indicators {
+  display: flex;
+  justify-content: center;
+}
+.slide-indicator {
+  height: 44px;
+  width: 50px;
+  display: flex;
+  justify-items: center;
+  cursor: pointer;
+}
+.slide-indicator:after {
+  content: "";
+  background-color: #878787;
+  height: 10px;
+  margin-top: 10px;
+  width: 40px;
+}
+.slide-indicator.active:after,
+.slide-indicator:hover:after {
+  background-color: #000000;
+}
+#carousel {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+  #slide-container {
+    scroll-snap-type: x mandatory;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    overflow-y: hidden;
+    box-sizing: content-box; /* So the width will be 100% + 17px */
+    gap: 10px;
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
+  }
+  .slide {
+    scroll-snap-align: center;
+    position: relative;
+    min-width: 100%;
+    height: auto;
+  }
+  .controls {
+    display: none;
+  }
+  @media screen and (min-width: 652px) {
+    #slide-container {
+      margin-top: 1em;
+      overflow:hidden;
+      padding-bottom: 30px; /* Increase/decrease this value for cross-browser compatibility */
+    }
+    .controls {
+      display: flex;
+      width: 97.5%;
+      top: 15px;
+      left: 1.5%;
+      right: 2%;
+      position: absolute;
+      pointer-events: none;
+      .left, .right {
+        opacity: 0;
+        height: 68vh;
+        width: 15vw;
+        cursor: pointer;
+        pointer-events: all;
+        transition: all .2s;
+        background-color: white;
+        &:hover {
+          opacity: 1;
+        }
+      }
+      .right {
+        margin-left: auto;
+        mask-image: linear-gradient(0.25turn,transparent,rgba(255, 255, 255, 0.596));
+      }
+      .left {
+        mask-image: linear-gradient(0.25turn,rgba(255, 255, 255, 0.596), transparent);
+      }
+    }
+  }
 }

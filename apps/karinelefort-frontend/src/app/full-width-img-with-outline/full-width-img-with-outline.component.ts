@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 
 @Component({
   selector: 'karinelefort-web-full-width-img-with-outline',
@@ -6,8 +6,6 @@ import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
   styleUrls: ['./full-width-img-with-outline.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class FullWidthImgWithOutlineComponent implements OnInit {
-  constructor() {}
-
-  ngOnInit(): void {}
+export class FullWidthImgWithOutlineComponent {
+  @Input() imgUrl = ""
 }

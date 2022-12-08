@@ -8,3 +8,9 @@ export interface StrapiObject {
   id: number
 }
 
+export interface Resumee {
+  presA: string;
+  presB: string;
+  presC: string;
+  imgUrl: string
+}

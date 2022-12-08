@@ -17,15 +17,15 @@
     gap: 6px;
     display: grid;
     grid-template-columns: 1fr;
-     list-style-type: none;
-     .private-galery-item {
+    list-style-type: none;
+    .private-galery-item {
       background-color: $secondary;
       height: 15vh;
       display: flex;
       justify-content: center;
       align-items: center;
       font-size: 1.2em;
-     }
+    }
   }
   @media screen and (min-width: 652px) {
     ul {

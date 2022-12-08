@@ -1,18 +1,33 @@
-<karinelefort-web-full-width-img-with-outline></karinelefort-web-full-width-img-with-outline>
+<div id="carousel">
+  <div id="slide-container">
+    <div *ngFor="let img of carouselItems; let index = index" class="slide" [data-slideIndex]="index">
+      <karinelefort-web-full-width-img-with-outline
+        (click)="carouselNext()"
+        [imgUrl]="img"
+        class="slide-img"
+      >
+      </karinelefort-web-full-width-img-with-outline>
+    </div>
+  </div>
+  <div class="controls">
+    <div (click)="carouselNext('backward')" class="left"></div>
+    <div (click)="carouselNext('forward')" class="right"></div>
+  </div>
+</div>
 <karinelefort-web-wide-cta-wrapper
   [ctaItems]="ctaWrapperItems"
 ></karinelefort-web-wide-cta-wrapper>
 <karinelefort-web-info-buble-wrapper
+  *ngIf="isLoaded"
   [bubbles]="bubbles"
 ></karinelefort-web-info-buble-wrapper>
-<karinelefort-web-resumee-with-img></karinelefort-web-resumee-with-img>
+<karinelefort-web-resumee-with-img *ngIf="isLoaded" [resumee]="resumee">
+</karinelefort-web-resumee-with-img>
 <h2 class="separator-title">
-  Faites moi part de vos projets, je vous aiderai à les réaliser
+  {{ homepage['phraseAccroche'] }}
 </h2>
 <karinelefort-web-testimonials></karinelefort-web-testimonials>
 <karinelefort-web-text-banner></karinelefort-web-text-banner>
 <karinelefort-web-horizontal-img-galery
   [images]="imageGaleryImages"
 ></karinelefort-web-horizontal-img-galery>
-<!-- <iframe width="100%" height="650" src="https://www.fotostudio.io/lead_forms/6070" frameborder="0" allowfullscreen></iframe> -->
-
