@@ -9,8 +9,6 @@ module.exports = ({ env }) => ({
       password: env('DATABASE_PASSWORD', '645ZEOtio'),
       ssl: env.bool('DATABASE_SSL', false),
     },
+    debug: false
   },
 });
-// karinelefort
-// karinelefort
-// 645ZEOtio
