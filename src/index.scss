@@ -1,0 +1,137 @@
+@import "./assets/_variables.scss";
+
+@font-face {
+    font-family: "Californian_FB_Regular";
+    src: url("./assets/fonts/Californian_FB_Regular.ttf") format("truetype");
+    font-weight: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Bradley_hand";
+    src: url("./assets/fonts/Lloyd2011.ttf") format("truetype");
+    font-weight: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "P22_Cezanne_Pro_Regular";
+    src: url("./assets/fonts/P22_Cezanne_Pro_Regular.ttf") format("truetype");
+    font-weight: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Rage_Italic_Regular";
+    src: url("./assets/fonts/Rage_Italic_Regular.ttf") format("truetype");
+    font-weight: normal;
+    font-display: swap;
+}
+
+:root {
+    --color: #112226;
+}
+
+html {
+    font-size: 10px;
+}
+
+body {
+    overflow-x: hidden;
+    padding: 0;
+    margin: 0;
+    font-family: "Californian_FB_Regular";
+    font-size: 1.5rem;
+    h1 {
+        font-family: "P22_Cezanne_Pro_Regular";
+        color: $primary;
+        font-weight: lighter;
+        font-size: 4rem;
+    }
+
+    h2 {
+        font-size: 1.8em;
+        font-weight: lighter;
+        font-family: "Rage_Italic_Regular";
+    }
+}
+
+.arrow__bottom {
+    background-color: black;
+    width: 20px;
+    height: 20px;
+    border-radius: 100%;
+    transition: 0.2s;
+    &::after {
+        content: "";
+        transform: rotate(-46deg);
+        display: block;
+        position: relative;
+        left: 5px;
+        top: 4px;
+        height: 8px;
+        width: 8px;
+        border-left: 2px solid $secondary;
+        border-bottom: 2px solid $secondary;
+        border-radius: 1px;
+    }
+    &:hover {
+        background-color: $secondary;
+        transform: scale(1.2);
+        box-shadow: 1px 1px 1px #444;
+        &::after {
+            border-color: $text-on-s;
+        }
+    }
+}
+
+#scroll-to-top {
+    position: fixed;
+    height: 3rem;
+    width: 3rem;
+    padding: 0;
+    margin: 0;
+    border: none;
+    background-color: transparent;
+    border-radius: 50%;
+    right: 2vw;
+    bottom: 2vh;
+    transition: all 0.4s;
+  
+    .scroll {
+      position: relative;
+      height: 3rem;
+      width: 3rem;
+      padding: 0;
+      margin: auto;
+      border: none;
+      transition: all 0.4s;
+      border-radius: 50%;
+      .inner {
+        position: absolute;
+        display: flex;
+        justify-content: center;
+        align-items: baseline;
+        inset: 2px;
+        background-color: white;
+        transition: all 0.4s;
+        border: none;
+        border-radius: 50%;
+      }
+      border-radius: 50%;
+    }
+    i {
+      color: var(--color);
+      font-size: 2.4rem;
+    }
+    &:hover {
+      cursor: pointer;
+      background-color: var(--color);
+      .inner {
+        background-color: var(--color);
+      }
+      i {
+        color: white;
+      }
+    }
+  }

@@ -1,0 +1,10 @@
+@import "./assets/_variables.scss";
+
+.App {
+  text-align: center;
+  min-height: 100vh;
+}
+
+.link {
+  color: var(--color)
+}
