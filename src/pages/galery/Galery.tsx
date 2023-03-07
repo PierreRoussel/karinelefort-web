@@ -18,15 +18,15 @@ const Galery = () => {
   const [tiles, setTiles] = createSignal([]);
   createEffect(() => {
     if (!galeries.loading) {
-      setTimeout(setTiles(galeries()?.data as any), 1000);
+      setTiles(galeries()?.data as any);
     }
   });
   return (
     <div class='galeries'>
-      <Suspense fallback={<SpiralLoader />}>
+      <h2>Mes galeries photo</h2>
+      <Suspense fallback={<SpiralLoader></SpiralLoader>}>
         <PageHeader tiles={tiles()}></PageHeader>
       </Suspense>
-      <h2>Mes galeries photo</h2>
       <div class='galeries__content'>
         <CitationWide
           text="La photographie devient de l'art quand elle dévoile l'âme et révèle l'authenticité du sujet."

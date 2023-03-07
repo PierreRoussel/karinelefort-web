@@ -1,14 +1,14 @@
-import { useParams } from '@solidjs/router';
 import {
   createResource,
   createSignal,
   createEffect,
   For,
   Suspense,
-  onMount,
+  onCleanup,
 } from 'solid-js';
 import { BookMarkWrapper } from '../../components/bookmark-wrapper/BookMarkWrapper';
 import { BubbleWrapper } from '../../components/bubble-wrapper/BubbleWrapper';
+import CtaBanner from '../../components/cta-banner/CtaBanner';
 import FullWidthImgWithOutline from '../../components/full-width-img-with-outline/FullWidthImgWithOutline';
 import SpiralLoader from '../../components/loaders/SpiralLoader';
 import { Resumee } from '../../components/resumee/Resumee';
@@ -19,6 +19,7 @@ import { CtaWrapper } from '../../modules/api_types';
 import './home.scss';
 
 const Home = () => {
+  const [autoplay, setAutoplay] = createSignal(undefined);
   const ctaWrapperItems: CtaWrapper[] = [
     {
       caller: 'réserver',
@@ -28,7 +29,7 @@ const Home = () => {
         alt: '',
       },
       link: 'https://www.fotostudio.io/client/reservation/61105',
-      backgroundColor: '#83c0cf',
+      backgroundColor: 'hsl(0, 54%, 95%)',
     },
     {
       caller: 'visitez',
@@ -38,7 +39,7 @@ const Home = () => {
         alt: '',
       },
       link: '/galerie',
-      backgroundColor: '#52909e',
+      backgroundColor: 'hsl(0, 54%, 75%)',
     },
     {
       caller: "besoin d'un renseignement",
@@ -58,7 +59,7 @@ const Home = () => {
         alt: '',
       },
       link: '/#',
-      backgroundColor: '#1f6270',
+      backgroundColor: 'hsl(0, 54%, 55%)',
     },
     {
       caller: 'réserver',
@@ -68,7 +69,7 @@ const Home = () => {
         alt: '',
       },
       link: 'https://www.fotostudio.io/client/reservation/61105',
-      backgroundColor: '#beb9ae',
+      backgroundColor: 'hsl(0, 54%, 65%)',
     },
   ];
   const imageGaleryImages: any[] = [
@@ -115,24 +116,26 @@ const Home = () => {
     el.scrollLeft = getNewScrollPosition(arg, el, slideWidth);
   };
 
-  const autoplayCarousel = () => {
+  const autoplayCarousel = (stop?: boolean) => {
     const el = document.querySelector('#slide-container');
     const timer = 5000;
     // Autoplay
-    let autoplay = setInterval(() => carouselNext('forward'), timer);
+    setAutoplay(setInterval(() => carouselNext('forward'), timer) as any);
     //@ts-ignore
-
-    el.addEventListener('mouseenter', () => clearInterval(autoplay));
+    el.addEventListener('mouseenter', () => clearInterval(autoplay()));
     //@ts-ignore
-    el.addEventListener(
-      'mouseleave',
-      () => (autoplay = setInterval(() => carouselNext('forward'), timer))
+    el.addEventListener('mouseleave', () =>
+      setAutoplay(setInterval(() => carouselNext('forward'), timer) as any)
     );
     //@ts-ignore
-    el.addEventListener('touch', () => clearInterval(autoplay));
+    el.addEventListener('touch', () => clearInterval(autoplay()));
     //@ts-ignore
-    el.addEventListener('click', () => clearInterval(autoplay));
+    el.addEventListener('click', () => clearInterval(autoplay()));
   };
+
+  onCleanup(() => {
+    setAutoplay(clearInterval(autoplay()) as any);
+  });
 
   /** LIFECYCLE */
   const [homepage] = createResource(() => fetchPage('page-d-accueil'));
@@ -165,7 +168,7 @@ const Home = () => {
   });
 
   return (
-    <Suspense fallback={<SpiralLoader/>}>
+    <Suspense fallback={<div class='home-loader'><SpiralLoader /></div>}>
       <div id='carousel'>
         <div id='slide-container'>
           <For each={carouselItems() as any}>
@@ -186,6 +189,7 @@ const Home = () => {
           <div onClick={() => carouselNext('forward')} class='right'></div>
         </div>
         <BookMarkWrapper ctaItems={ctaWrapperItems} />
+        <CtaBanner />
         <BubbleWrapper bubbles={bubbles()} />
         <Resumee resumee={resumee()} />
         <h2 class='separator-title'>{homepage()?.['phraseAccroche']}</h2>

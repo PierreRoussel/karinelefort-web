@@ -32,14 +32,19 @@ const App: Component = () => {
     <div class={styles.App}>
       <Header />
       <Routes>
-        <Route path='/accueil' component={Home} />
+        <Route path='/' component={lazy(() => import('./pages/home/Home'))} />
         <Route path='/photos' component={Galery} />
         <Route
           path='/photos/:slug'
           component={lazy(() => import('./pages/galery/GaleryItem'))}
         />
         <Route path='/tarifs' component={Tarif} />
-        <Route path='/' component={Home} />
+        <Route
+          path='/galeries-privees'
+          component={lazy(
+            () => import('./pages/private-galeries/PrivateGaleries')
+          )}
+        />
       </Routes>
       <button
         id='scroll-to-top'
@@ -49,7 +54,7 @@ const App: Component = () => {
         <div
           class='scroll'
           style={`
-              background: conic-gradient(var(--color) ${scrolled()}%, lightgrey ${scrolled()}%);`}
+              background: conic-gradient(hsl(0, 54%, 75%) ${scrolled()}%, white ${scrolled()}%);`}
         >
           <div class='inner'>
             <i class='iconoir-nav-arrow-up'></i>

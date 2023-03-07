@@ -1,5 +1,6 @@
 import { NavLink } from '@solidjs/router';
 import { Component, createEffect, createSignal, For, Show } from 'solid-js';
+import RsPictos from '../rs-pictos/RsPictos';
 import './header.scss';
 import SideNav from './side-nav/SideNav';
 
@@ -40,6 +41,7 @@ const Header: Component = () => {
             {(item) => {
               return (
                 <NavLink
+                  end
                   href={item.link}
                   activeClass='active'
                   class='horizontal-nav__link'
@@ -49,6 +51,7 @@ const Header: Component = () => {
               );
             }}
           </For>
+          <RsPictos pictoHeights="25" />
         </div>
       </div>
       <div class='navbar__side--container'>

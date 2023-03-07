@@ -1,9 +1,6 @@
 @import "../../assets/variables";
 
 .img__container {
-  width: 100vw;
-  margin: 1em 0;
-  height: auto;
   position: relative;
   .img__inner {
     border: 2px solid $secondary-dark;
@@ -25,8 +22,8 @@
 
 @media screen and (min-width: 652px) {
   .img__container {
-    width: 97%;
-    height: 68vh;
+    width: 95vw;
+    height: 72vh;
     margin: 0 auto;
     .img__inner {
       inset: 6px;
@@ -37,9 +34,9 @@
     .img__img {
       width: 100%;
       background-position-x: center;
-      background-size: 100% auto;
+      background-size: cover;
       background-repeat: no-repeat;
-      height: 68vh;
+      height: 72vh;
     }
   }
 }

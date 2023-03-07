@@ -17,6 +17,7 @@ function PageHeader(props: any) {
               <ImageWithTitleOverlay
                 title={item['attributes'].Nom.toString()}
                 link={item['attributes'].slug.toString()}
+                lazy
                 imgSrc={
                   'https://whale-app-aylrn.ondigitalocean.app' +
                   item['attributes'].Previsualisation['data'][

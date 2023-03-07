@@ -36,7 +36,7 @@
     flex-wrap: wrap;
     flex-direction: row;
     gap: 5px;
-    max-width: 90vw;
+    max-width: 95vw;
     overflow: hidden;
   }
   @media screen and (min-width: 652px) {
@@ -45,11 +45,12 @@
     flex-direction: row;
     justify-content: center;
     .header__title {
+      flex: 1;
       margin-left: auto;
-      padding-right: 5vw;
     }
     .header__images {
-      max-width: 65vw;
+      flex: 3;
+      min-height: 30vw;
     }
   }
 }

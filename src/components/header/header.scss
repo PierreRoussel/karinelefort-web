@@ -46,7 +46,7 @@
 .horizontal-nav {
     background-color: $secondary;
     height: 90px;
-    width: 95%;
+    width: 95vw;
     margin: auto;
     color: $primary;
     display: flex;
@@ -74,14 +74,27 @@
         &:hover,
         &:active,
         &:focus {
-            color: $primary-light;
+            color: $primary;
         }
         &.active {
-          color: $primary;
+            color: $primary-dark;
+        }
+    }
+    .rs-picto {
+        position: absolute;
+        right: 6vw;
+        width: 50px;
+        span {
+            margin: 0 1rem;
+        }
+        svg {
+            fill: $primary;
+            &:hover {
+                fill:$primary-dark;
+            }
         }
     }
 }
-
 
 .side-nav--container {
     .side-nav {
@@ -156,7 +169,6 @@
         }
     }
 }
-
 
 @media screen and (min-width: 652px) {
     .navbar {
