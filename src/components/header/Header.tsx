@@ -21,8 +21,11 @@ const Header: Component = () => {
     { name: 'Accueil', link: '' },
     { name: 'Photos', link: '/photos' },
     { name: 'Tarifs', link: '/tarifs' },
+    { name: 'Iris', link: '/iris' },
+    { name: 'Concours', link: '/concours' },
     { name: 'Vos photos', link: '/galeries-privees' },
-    { name: 'Infos&Tarifs', link: '/info-et-tarifs' },
+    { name: 'FAQ', link: '/faq' },
+    { name: 'Contact', link: '/contact' },
   ];
 
   return (

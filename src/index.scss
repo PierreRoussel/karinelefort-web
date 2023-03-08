@@ -75,6 +75,7 @@ body {
   position: fixed;
   height: 3rem;
   width: 3rem;
+  z-index: 10;
   padding: 0;
   margin: 0;
   border: none;
@@ -117,6 +118,42 @@ body {
     }
     i {
       color: white;
+    }
+  }
+}
+
+a {
+  color: $primary-dark;
+  position: relative;
+  border-bottom: 1px solid transparent;
+  text-decoration: none;
+  transition: all 0.2s;
+
+  &:hover {
+    color: $primary;
+    border-color: $primary;
+    &::after {
+      color: $primary;
+      right: -11%;
+    }
+  }
+
+  &.link {
+    &::after {
+      content: ">";
+      position: absolute;
+      right: -10%;
+      top: 50%;
+      transform: translateY(-110%);
+      height: 1rem;
+      width: 1rem;
+      transition: all 0.2s;
+    }
+    &:hover {
+      &::after {
+        color: $primary;
+        right: -11%;
+      }
     }
   }
 }

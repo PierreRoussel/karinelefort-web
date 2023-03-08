@@ -2,30 +2,65 @@
 
 .info-bubble {
     padding: 2em;
-    margin: 1vh;
-    color: rgba(black, 0.8);
     text-align: center;
     border-radius: 3px;
-    background-color: $secondary;
-    box-shadow: 2px 2px 4px $secondary-dark;
+    background-color: $primary;
+    box-shadow: 2px 2px 3px rgba(black, 0.1);
+    position: relative;
+    max-width: 80vw;
+    margin: 1em auto;
+
+    .title-content {
+        z-index: 11;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        > * {
+            flex: 1;
+        }
+        h3 {
+            padding-bottom: 15px;
+            margin: 0;
+        }
+        .intro {
+            padding-top: 2rem;
+            border-top: 1px solid black;
+            font-family: "BriosoPro-Regular";
+        }
+        .intro.link {
+            color: white;
+            &::after {
+                top: 60%;
+            }
+            &:hover {
+                &::after {
+                    color: white;
+                }
+            }
+        }
+    }
 }
 
 .info-bubble-wrapper {
-    margin: 4em;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     align-items: center;
     justify-content: space-evenly;
+    gap: 2em;
 }
 
 @media screen and (min-width: 652px) {
     .info-bubble-wrapper {
+        margin: 8em auto;
+        gap: 4em;
         flex-direction: row;
+        justify-content: center;
     }
     .info-bubble {
-        margin: 6em 0 2em 0;
+        margin: 1em;
         font-size: 1.1em;
+        max-width: 20vw;
         padding: 3em;
         letter-spacing: 0.06em;
     }

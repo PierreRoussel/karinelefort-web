@@ -10,6 +10,7 @@ import { BookMarkWrapper } from '../../components/bookmark-wrapper/BookMarkWrapp
 import { BubbleWrapper } from '../../components/bubble-wrapper/BubbleWrapper';
 import CtaBanner from '../../components/cta-banner/CtaBanner';
 import FullWidthImgWithOutline from '../../components/full-width-img-with-outline/FullWidthImgWithOutline';
+import IrisTestimonials from '../../components/iris_testimonials/IrisTestimonials';
 import SpiralLoader from '../../components/loaders/SpiralLoader';
 import { Resumee } from '../../components/resumee/Resumee';
 import SquaredGalery from '../../components/squared-galery/SquaredGalery';
@@ -22,8 +23,8 @@ const Home = () => {
   const [autoplay, setAutoplay] = createSignal(undefined);
   const ctaWrapperItems: CtaWrapper[] = [
     {
-      caller: 'réserver',
-      service: 'une séance',
+      caller: 'se renseigner',
+      service: 'FAQ',
       image: {
         url: '/62c58e2f4d4d7603225062.jpg',
         alt: '',
@@ -32,8 +33,8 @@ const Home = () => {
       backgroundColor: 'hsl(0, 54%, 95%)',
     },
     {
-      caller: 'visitez',
-      service: 'les galeries',
+      caller: 'détails des',
+      service: 'tarifs',
       image: {
         url: '/616c731a3c80f796838716.jpg',
         alt: '',
@@ -42,8 +43,8 @@ const Home = () => {
       backgroundColor: 'hsl(0, 54%, 75%)',
     },
     {
-      caller: "besoin d'un renseignement",
-      service: 'contactez moi',
+      caller: 'découvrez',
+      service: 'les iris',
       image: {
         url: '/615a17326ab84037154751.jpg',
         alt: '',
@@ -52,14 +53,14 @@ const Home = () => {
       backgroundColor: '#fff',
     },
     {
-      caller: 'découvrez',
+      caller: 'consulter',
       service: 'mes collections',
       image: {
         url: '/270297889_4498951966841054_2309659315178713093_n.jpg',
         alt: '',
       },
       link: '/#',
-      backgroundColor: 'hsl(0, 54%, 55%)',
+      backgroundColor: 'hsl(0, 54%, 65%)',
     },
     {
       caller: 'réserver',
@@ -69,7 +70,7 @@ const Home = () => {
         alt: '',
       },
       link: 'https://www.fotostudio.io/client/reservation/61105',
-      backgroundColor: 'hsl(0, 54%, 65%)',
+      backgroundColor: 'hsl(0, 54%, 55%)',
     },
   ];
   const imageGaleryImages: any[] = [
@@ -147,9 +148,16 @@ const Home = () => {
     if (!homepage.loading) {
       //@ts-ignore
       setBubbles([
-        { text: homepage()?.['Horaires'] },
-        { text: homepage()?.['informationsReservations'] },
-        { text: homepage()?.['TitreLien'], link: homepage()?.['lien'] },
+        { title: 'Mes horaires', text: homepage()?.['Horaires'] },
+        {
+          title: 'Mes horaires',
+          text: homepage()?.['informationsReservations'],
+        },
+        {
+          title: 'Une question ?',
+          text: homepage()?.['TitreLien'],
+          link: homepage()?.['lien'],
+        },
       ]);
       //@ts-ignore
       setResumee({
@@ -168,7 +176,13 @@ const Home = () => {
   });
 
   return (
-    <Suspense fallback={<div class='home-loader'><SpiralLoader /></div>}>
+    <Suspense
+      fallback={
+        <div class='home-loader'>
+          <SpiralLoader />
+        </div>
+      }
+    >
       <div id='carousel'>
         <div id='slide-container'>
           <For each={carouselItems() as any}>
@@ -188,11 +202,13 @@ const Home = () => {
           <div onClick={() => carouselNext('backward')} class='left'></div>
           <div onClick={() => carouselNext('forward')} class='right'></div>
         </div>
+        <h2 class='separator-title'>
+          <q>{homepage()?.['phraseAccroche']}</q></h2>
         <BookMarkWrapper ctaItems={ctaWrapperItems} />
         <CtaBanner />
         <BubbleWrapper bubbles={bubbles()} />
         <Resumee resumee={resumee()} />
-        <h2 class='separator-title'>{homepage()?.['phraseAccroche']}</h2>
+        <IrisTestimonials />
         <TextBanner />
         <SquaredGalery images={imageGaleryImages} />
       </div>

@@ -1,5 +1,6 @@
 import { createEffect, createResource, createSignal, Suspense } from 'solid-js';
 import CitationWide from '../../components/citation-wide/CitationWide';
+import CtaBanner from '../../components/cta-banner/CtaBanner';
 import SpiralLoader from '../../components/loaders/SpiralLoader';
 import PageHeader from '../../components/page-header/PageHeader';
 import Rewards from '../../components/rewards/Rewards';
@@ -34,6 +35,7 @@ const Galery = () => {
         />
       </div>
       <Rewards></Rewards>
+      <CtaBanner />
     </div>
   );
 };

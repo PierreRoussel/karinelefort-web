@@ -5,7 +5,6 @@ import styles from './App.module.scss';
 import Footer from './components/footer/Footer';
 import Header from './components/header/Header';
 import Galery from './pages/galery/Galery';
-import Home from './pages/home/Home';
 import Tarif from './pages/tarif/Tarif';
 
 const App: Component = () => {
@@ -38,6 +37,7 @@ const App: Component = () => {
           path='/photos/:slug'
           component={lazy(() => import('./pages/galery/GaleryItem'))}
         />
+        <Route path='/faq' component={lazy(() => import('./pages/faq/Faq'))} />
         <Route path='/tarifs' component={Tarif} />
         <Route
           path='/galeries-privees'
@@ -54,7 +54,7 @@ const App: Component = () => {
         <div
           class='scroll'
           style={`
-              background: conic-gradient(hsl(0, 54%, 75%) ${scrolled()}%, white ${scrolled()}%);`}
+              background: conic-gradient(hsl(0, 54%, 75%) ${scrolled()}%, white ${scrolled()-1}%);`}
         >
           <div class='inner'>
             <i class='iconoir-nav-arrow-up'></i>

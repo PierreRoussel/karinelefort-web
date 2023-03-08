@@ -55,3 +55,15 @@
     }
   }
 }
+
+.galeries {
+  @media screen and (min-width: 652px) {
+    h2 {
+      margin-top: 2em;
+    }
+    .text-banner {
+      margin: 8em 0;
+      padding: 8em 0;
+    }
+  }
+}
