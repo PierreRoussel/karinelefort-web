@@ -90,7 +90,7 @@
         svg {
             fill: $primary;
             &:hover {
-                fill:$primary-dark;
+                fill: $primary-dark;
             }
         }
     }
@@ -173,6 +173,41 @@
 @media screen and (min-width: 652px) {
     .navbar {
         flex-direction: column;
+        transition: all 0.2s;
+        height: 22rem;
+        justify-content: flex-start;
+        .navbar__horizontal--container {
+            position: fixed;
+            transition: all 0.33s ease-in-out;
+            top: 12rem;
+        }
+        &.nav-stacked {
+            isolation: isolate;
+            z-index: 1000;
+            .navbar__title {
+                opacity: 0;
+                transition: all 0.33s ease-in-out;
+            }
+            .navbar__horizontal--container {
+                top: 0;
+
+                .horizontal-nav {
+                    height: 130px;
+                    width: 100vw;
+                    .navbar__title {
+                        opacity: 1;
+                        position: absolute;
+                        left: 1rem;
+                        font-size: 3rem;
+                    }
+                    .horizontal-nav--inner {
+                        transition: all 0.2;
+                        opacity: 0;
+                    }
+                }
+            }
+        }
+
         .navbar__title {
             line-height: 10rem;
             font-size: 2.5em;

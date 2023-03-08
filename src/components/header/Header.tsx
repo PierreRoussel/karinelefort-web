@@ -1,5 +1,5 @@
 import { NavLink } from '@solidjs/router';
-import { Component, createEffect, createSignal, For, Show } from 'solid-js';
+import { createSignal, For, Show } from 'solid-js';
 import RsPictos from '../rs-pictos/RsPictos';
 import './header.scss';
 import SideNav from './side-nav/SideNav';
@@ -9,9 +9,9 @@ export type MenuItem = {
   link: string;
 };
 
-const Header: Component = () => {
+const Header = (props: any) => {
   const [sideNavStatus, setSideNavStatus] = createSignal(false);
-
+  console.log('props.scrolled', props.scrolled);
   const toggleSideNav = (event: boolean) => {
     if (event) setSideNavStatus(event);
     else setSideNavStatus(!sideNavStatus());
@@ -29,7 +29,7 @@ const Header: Component = () => {
   ];
 
   return (
-    <header class='navbar'>
+    <header class={`navbar ${props.scrolled ? '' : 'nav-stacked'}`}>
       <button
         onClick={() => toggleSideNav(true)}
         class='navbar__burger-menu--button'
@@ -40,6 +40,11 @@ const Header: Component = () => {
       <div class='navbar__horizontal--container'>
         <div class='horizontal-nav'>
           <div class='horizontal-nav--inner'></div>
+          <Show when={!props.scrolled}>
+            <a href='/' class='navbar__title'>
+              Karine Lefort Photographie
+            </a>
+          </Show>
           <For each={menu}>
             {(item) => {
               return (
@@ -54,7 +59,7 @@ const Header: Component = () => {
               );
             }}
           </For>
-          <RsPictos pictoHeights="25" />
+          <RsPictos pictoHeights='25' />
         </div>
       </div>
       <div class='navbar__side--container'>

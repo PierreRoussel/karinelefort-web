@@ -29,7 +29,7 @@ const App: Component = () => {
   });
   return (
     <div class={styles.App}>
-      <Header />
+      <Header scrolled={(scrolled() <= 1 ? true : false)} />
       <Routes>
         <Route path='/' component={lazy(() => import('./pages/home/Home'))} />
         <Route path='/photos' component={Galery} />
