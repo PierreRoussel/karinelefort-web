@@ -157,3 +157,31 @@ a {
     }
   }
 }
+
+.reveal-loaded {
+  .reveal {
+    opacity: 0 !important;
+  }
+}
+
+.reveal-loaded {
+  animation-delay: 0.1s;
+  animation: revealAnimation 1s cubic-bezier(0.5, 0, 0, 1) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal-loaded [class*="reveal-"] {
+    animation: none !important;
+  }
+}
+
+@keyframes revealAnimation {
+  0% {
+    opacity: 0;
+    transform: translateY(60px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}

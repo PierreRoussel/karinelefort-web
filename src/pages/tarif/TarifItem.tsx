@@ -1,10 +1,10 @@
-import { useLocation, useParams } from '@solidjs/router';
+import { useParams } from '@solidjs/router';
 import { createEffect, createResource, createSignal, For } from 'solid-js';
 import CtaBanner from '../../components/cta-banner/CtaBanner';
-import { fetchAPI, fetchPage } from '../../modules/api';
+import { fetchAPI } from '../../modules/api';
 import { APIParams } from '../../modules/api_types';
 
-function GaleryItem() {
+function TarifItem() {
   const params = useParams();
   const urlParamsObject: APIParams = {
     publicationState: 'live',
@@ -19,7 +19,9 @@ function GaleryItem() {
   const [photos, setPhotos] = createSignal([]);
   const [title, setTitle] = createSignal([]);
   createEffect(() => {
-    if (!galerieItems.loading && galerieItems() !== undefined) {
+    if (!galerieItems.loading) {
+      if (!galerieItems()?.data.length) return;
+      console.log('🚀 ~ galerieItems():', galerieItems());
       //@ts-ignore
       const datas = galerieItems()?.data[0].attributes;
       setPhotos(datas.photos.data as any);
@@ -52,4 +54,4 @@ function GaleryItem() {
   );
 }
 
-export default GaleryItem;
+export default TarifItem;

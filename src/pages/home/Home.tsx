@@ -5,6 +5,7 @@ import {
   For,
   Suspense,
   onCleanup,
+  onMount,
 } from 'solid-js';
 import { BookMarkWrapper } from '../../components/bookmark-wrapper/BookMarkWrapper';
 import { BubbleWrapper } from '../../components/bubble-wrapper/BubbleWrapper';
@@ -146,6 +147,27 @@ const Home = () => {
 
   createEffect(() => {
     if (!homepage.loading) {
+      const threshold = 0.5;
+      const options = {
+        root: null,
+        rootMargin: '0px',
+        threshold,
+      };
+
+      const handleIntersect = function (entries: any, observer: any) {
+        entries.forEach(function (entry: any) {
+          if (entry.intersectionRatio > threshold) {
+            entry.target.classList.remove('reveal');
+            entry.target.classList.add('reveal-loaded');
+            observer.unobserve(entry.target);
+          }
+        });
+      };
+      const observer = new IntersectionObserver(handleIntersect, options);
+      const targets = document.querySelectorAll('.reveal');
+      targets.forEach(function (target) {
+        observer.observe(target);
+      });
       //@ts-ignore
       setBubbles([
         { title: 'Mes horaires', text: homepage()?.['Horaires'] },
@@ -183,34 +205,52 @@ const Home = () => {
         </div>
       }
     >
-      <div id='carousel'>
-        <div id='slide-container'>
-          <For each={carouselItems() as any}>
-            {(slide, i) => {
-              return (
-                <div class='slide' data-slideIndex={i}>
-                  <FullWidthImgWithOutline
-                    // @ts-ignore
-                    imgUrl={slide}
-                  ></FullWidthImgWithOutline>
-                </div>
-              );
-            }}
-          </For>
+      <div class='reveal-loaded'>
+        <div id='carousel'>
+          <div id='slide-container'>
+            <For each={carouselItems() as any}>
+              {(slide, i) => {
+                return (
+                  <div class='slide' data-slideIndex={i}>
+                    <FullWidthImgWithOutline
+                      // @ts-ignore
+                      imgUrl={slide}
+                    ></FullWidthImgWithOutline>
+                  </div>
+                );
+              }}
+            </For>
+          </div>
+          <div class='controls'>
+            <div onClick={() => carouselNext('backward')} class='left'></div>
+            <div onClick={() => carouselNext('forward')} class='right'></div>
+          </div>
         </div>
-        <div class='controls'>
-          <div onClick={() => carouselNext('backward')} class='left'></div>
-          <div onClick={() => carouselNext('forward')} class='right'></div>
+
+        <h2 class='separator-title reveal'>
+          <q>{homepage()?.['phraseAccroche']}</q>
+        </h2>
+        <div class='reveal'>
+          <BookMarkWrapper ctaItems={ctaWrapperItems} />
         </div>
-        <h2 class='separator-title'>
-          <q>{homepage()?.['phraseAccroche']}</q></h2>
-        <BookMarkWrapper ctaItems={ctaWrapperItems} />
-        <CtaBanner />
-        <BubbleWrapper bubbles={bubbles()} />
-        <Resumee resumee={resumee()} />
-        <IrisTestimonials />
-        <TextBanner />
-        <SquaredGalery images={imageGaleryImages} />
+        <div class='reveal'>
+          <CtaBanner />
+        </div>
+        <div class='reveal'>
+          <BubbleWrapper bubbles={bubbles()} />
+        </div>
+        <div class='reveal'>
+          <Resumee resumee={resumee()} />
+        </div>
+        <div class='reveal'>
+          <IrisTestimonials />
+        </div>
+        <div class='reveal'>
+          <TextBanner />
+        </div>
+        <div class='reveal'>
+          <SquaredGalery images={imageGaleryImages} />
+        </div>
       </div>
     </Suspense>
   );

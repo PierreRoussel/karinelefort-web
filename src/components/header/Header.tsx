@@ -11,7 +11,6 @@ export type MenuItem = {
 
 const Header = (props: any) => {
   const [sideNavStatus, setSideNavStatus] = createSignal(false);
-  console.log('props.scrolled', props.scrolled);
   const toggleSideNav = (event: boolean) => {
     if (event) setSideNavStatus(event);
     else setSideNavStatus(!sideNavStatus());
@@ -21,7 +20,7 @@ const Header = (props: any) => {
     { name: 'Accueil', link: '' },
     { name: 'Photos', link: '/photos' },
     { name: 'Tarifs', link: '/tarifs' },
-    { name: 'Iris', link: '/iris' },
+    { name: 'Iris', link: '/tarifs/iris' },
     { name: 'Concours', link: '/concours' },
     { name: 'Vos photos', link: '/galeries-privees' },
     { name: 'FAQ', link: '/faq' },

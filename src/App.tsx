@@ -1,6 +1,6 @@
 import { Route, Routes } from '@solidjs/router';
 import { Component, onMount, lazy, createSignal } from 'solid-js';
-
+import { Portal } from 'solid-js/web';
 import styles from './App.module.scss';
 import Footer from './components/footer/Footer';
 import Header from './components/header/Header';
@@ -29,7 +29,7 @@ const App: Component = () => {
   });
   return (
     <div class={styles.App}>
-      <Header scrolled={(scrolled() <= 1 ? true : false)} />
+      <Header scrolled={scrolled() <= 1 ? true : false} />
       <Routes>
         <Route path='/' component={lazy(() => import('./pages/home/Home'))} />
         <Route path='/photos' component={Galery} />
@@ -40,27 +40,35 @@ const App: Component = () => {
         <Route path='/faq' component={lazy(() => import('./pages/faq/Faq'))} />
         <Route path='/tarifs' component={Tarif} />
         <Route
+          path='/tarifs/:slug'
+          component={lazy(() => import('./pages/tarif/TarifItem'))}
+        />
+        <Route
           path='/galeries-privees'
           component={lazy(
             () => import('./pages/private-galeries/PrivateGaleries')
           )}
         />
+        <Portal>
+          <button
+            id='scroll-to-top'
+            class='hide'
+            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+          >
+            <div
+              class='scroll'
+              style={`
+          background: conic-gradient(hsl(0, 54%, 75%) ${scrolled()}%, white ${
+                scrolled() - 1
+              }%);`}
+            >
+              <div class='inner'>
+                <i class='iconoir-nav-arrow-up'></i>
+              </div>
+            </div>
+          </button>
+        </Portal>
       </Routes>
-      <button
-        id='scroll-to-top'
-        class='hide'
-        onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-      >
-        <div
-          class='scroll'
-          style={`
-              background: conic-gradient(hsl(0, 54%, 75%) ${scrolled()}%, white ${scrolled()-1}%);`}
-        >
-          <div class='inner'>
-            <i class='iconoir-nav-arrow-up'></i>
-          </div>
-        </div>
-      </button>
       <Footer />
     </div>
   );

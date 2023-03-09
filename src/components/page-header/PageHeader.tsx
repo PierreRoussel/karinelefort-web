@@ -18,12 +18,7 @@ function PageHeader(props: any) {
                 title={item['attributes'].Nom.toString()}
                 link={item['attributes'].slug.toString()}
                 lazy
-                imgSrc={
-                  'https://whale-app-aylrn.ondigitalocean.app' +
-                  item['attributes'].Previsualisation['data'][
-                    'attributes'
-                  ].url.toString()
-                }
+                imgSrc={item['attributes'].Previsualisation['data']['attributes'].url.toString()}
                 delay={index()}
               />
             );

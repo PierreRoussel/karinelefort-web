@@ -54,12 +54,13 @@
     justify-content: center;
     position: relative;
     align-items: center;
-    transition: 0.5s;
+    transition: all 0.33s ease-in-out;
     border-radius: 2px;
     .horizontal-nav--inner {
         inset: 5px;
         z-index: -1;
         width: 100%;
+        transition: all 0.33s ease-in-out;
         height: 100%;
         position: absolute;
         border: 2px solid $secondary-dark;
@@ -189,11 +190,10 @@
                 transition: all 0.33s ease-in-out;
             }
             .navbar__horizontal--container {
-                top: 0;
-
+                top: 1rem;
                 .horizontal-nav {
-                    height: 130px;
-                    width: 100vw;
+                    width: 95vw;
+                    margin: 0 auto;
                     .navbar__title {
                         opacity: 1;
                         position: absolute;
@@ -202,7 +202,8 @@
                     }
                     .horizontal-nav--inner {
                         transition: all 0.2;
-                        opacity: 0;
+                        width: 96vw;
+                        margin-left: -1vw;
                     }
                 }
             }
@@ -211,6 +212,7 @@
         .navbar__title {
             line-height: 10rem;
             font-size: 2.5em;
+            transition: all 0.33s ease-in-out;
         }
         .navbar__side--container,
         .navbar__burger-menu--button {

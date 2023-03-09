@@ -1,5 +1,4 @@
 import { Component } from 'solid-js';
-import { getStrapiURL } from '../../modules/api';
 import './full-width-img-with-outline.scss';
 
 const FullWidthImgWithOutline: Component = (props: any) => {
@@ -8,7 +7,7 @@ const FullWidthImgWithOutline: Component = (props: any) => {
       <div class='img__inner'></div>
       <div
         class='img__img fade-in-left'
-        style={`background-image: url(${getStrapiURL(props.imgUrl)}`}
+        style={`background-image: url(${props.imgUrl}`}
       ></div>
     </div>
   );

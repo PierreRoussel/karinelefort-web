@@ -12,7 +12,7 @@ export const Resumee = (props: any) => {
       </div>
       <div
         class='resumee-with-img__right'
-        style={`background-image: url(${getStrapiURL(props.resumee.imgUrl)})`}
+        style={`background-image: url(${props.resumee.imgUrl})`}
       >
         <div class='resumee-with-img__right--inner'></div>
       </div>
