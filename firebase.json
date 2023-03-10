@@ -1,6 +1,6 @@
 {
   "hosting": {
-    "public": "dist/apps/karinelefort-frontend",
+    "public": "dist/",
     "ignore": [
       "firebase.json",
       "**/.*",
