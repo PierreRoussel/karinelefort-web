@@ -70,7 +70,7 @@ const Home = () => {
         url: '/reward1.jpg',
         alt: '',
       },
-      link: 'https://www.fotostudio.io/client/reservation/61105',
+      link: 'https://www.fotostudio.io/lead_forms/3762',
       backgroundColor: 'hsl(0, 54%, 55%)',
     },
   ];

@@ -7,7 +7,7 @@ function CtaBanner(props: any) {
       <h3>{props.text ? props.text : 'Immortaliser vos moments'}</h3>
       <CtaBtn
         btnTitle='Réservez une séance Iris'
-        link='https://www.fotostudio.io/client/reservation/61105'
+        link='https://www.fotostudio.io/lead_forms/3762'
       />
     </div>
   );

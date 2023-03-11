@@ -38,6 +38,7 @@ const App: Component = () => {
           component={lazy(() => import('./pages/galery/GaleryItem'))}
         />
         <Route path='/faq' component={lazy(() => import('./pages/faq/Faq'))} />
+        <Route path='/contact' component={lazy(() => import('./pages/contact/Contact'))} />
         <Route path='/tarifs' component={Tarif} />
         <Route
           path='/tarifs/:slug'
