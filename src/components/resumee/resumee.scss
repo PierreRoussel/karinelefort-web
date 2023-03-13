@@ -14,7 +14,7 @@
             font-size: 1.8em;
             padding-left: 0.5em;
             line-height: 3rem;
-            border-left: 0.3em solid $primary;
+            border-left: 0.3em solid $n5;
         }
     }
 }
@@ -33,13 +33,15 @@
             justify-content: flex-start;
             align-items: flex-start;
             width: 100%;
-            padding: 5em;
+            max-width: 600px;
+            padding: 3em;
+            margin-left: auto;
             p {
                 font-size: 1.1em;
             }
             .left__quote {
-                line-height: 10rem;
-                font-size: 2.5em;
+                line-height: 5rem;
+                font-size: 2em;
             }
         }
 
@@ -49,10 +51,11 @@
             background-repeat: no-repeat;
             background-size: cover;
             background-position: center;
-            width: 35em;
-            min-width: 300px;
+            min-width: 400px;
             border-radius: 3px;
-            margin-right: 4em;
+            max-height: 400px;
+            margin: auto;
+            aspect-ratio: 1/3;
             .resumee-with-img__right--inner {
                 position: absolute;
                 height: 100%;

@@ -20,7 +20,7 @@ const Header = (props: any) => {
     { name: 'Accueil', link: '' },
     { name: 'Photos', link: '/photos' },
     { name: 'Tarifs', link: '/tarifs' },
-    { name: 'Iris', link: '/tarifs/iris' },
+    { name: 'Iris', link: 'tarifs/iris' },
     { name: 'Concours', link: '/concours' },
     { name: 'Vos photos', link: '/galeries-privees' },
     { name: 'FAQ', link: '/faq' },
@@ -38,7 +38,6 @@ const Header = (props: any) => {
       </a>
       <div class='navbar__horizontal--container'>
         <div class='horizontal-nav'>
-          <div class='horizontal-nav--inner'></div>
           <Show when={!props.scrolled}>
             <a href='/' class='navbar__title'>
               Karine Lefort Photographie
@@ -46,9 +45,19 @@ const Header = (props: any) => {
           </Show>
           <For each={menu}>
             {(item) => {
+              if (item.link === '')
+                return (
+                  <NavLink
+                    end
+                    href={item.link}
+                    activeClass='active'
+                    class='horizontal-nav__link'
+                  >
+                    {item.name}
+                  </NavLink>
+                );
               return (
                 <NavLink
-                  end
                   href={item.link}
                   activeClass='active'
                   class='horizontal-nav__link'

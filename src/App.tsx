@@ -6,6 +6,7 @@ import Footer from './components/footer/Footer';
 import Header from './components/header/Header';
 import Galery from './pages/galery/Galery';
 import Tarif from './pages/tarif/Tarif';
+import TarifItem from './pages/tarif/TarifItem';
 
 const App: Component = () => {
   const [scrolled, setScrolled] = createSignal(0);
@@ -28,7 +29,7 @@ const App: Component = () => {
     });
   });
   return (
-    <div class={styles.App}>
+    <div class={`${styles.App} app`} style={'margin:0'}>
       <Header scrolled={scrolled() <= 1 ? true : false} />
       <Routes>
         <Route path='/' component={lazy(() => import('./pages/home/Home'))} />
@@ -38,12 +39,17 @@ const App: Component = () => {
           component={lazy(() => import('./pages/galery/GaleryItem'))}
         />
         <Route path='/faq' component={lazy(() => import('./pages/faq/Faq'))} />
-        <Route path='/contact' component={lazy(() => import('./pages/contact/Contact'))} />
-        <Route path='/tarifs' component={Tarif} />
         <Route
-          path='/tarifs/:slug'
-          component={lazy(() => import('./pages/tarif/TarifItem'))}
+          path='/contact'
+          component={lazy(() => import('./pages/contact/Contact'))}
         />
+        <Route path='/tarifs'>
+          <Route path='/' component={Tarif} />
+          <Route
+            path='/:slug'
+            component={TarifItem}
+          />
+        </Route>
         <Route
           path='/galeries-privees'
           component={lazy(

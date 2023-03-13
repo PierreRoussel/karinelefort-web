@@ -1,4 +1,3 @@
-import { NavLink } from '@solidjs/router';
 import { Component } from 'solid-js';
 import RsPictos from '../rs-pictos/RsPictos';
 import './footer.scss';
@@ -6,7 +5,6 @@ import './footer.scss';
 const Footer: Component = () => {
   return (
     <footer class='footer'>
-      <div class='footer__inner'></div>
       <div class='footer__content'>
         <p class='content__left'>
           Studio <br />

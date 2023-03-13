@@ -11,7 +11,7 @@
     .navbar__title {
         font-size: 2.5rem;
         padding: 0.2em;
-        color: $primary;
+        color: $n5;
         text-decoration: none;
         font-family: "P22_Cezanne_Pro_Regular";
     }
@@ -44,11 +44,9 @@
 }
 
 .horizontal-nav {
-    background-color: $secondary;
     height: 90px;
     width: 95vw;
     margin: auto;
-    color: $primary;
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -56,29 +54,20 @@
     align-items: center;
     transition: all 0.33s ease-in-out;
     border-radius: 2px;
-    .horizontal-nav--inner {
-        inset: 5px;
-        z-index: -1;
-        width: 100%;
-        transition: all 0.33s ease-in-out;
-        height: 100%;
-        position: absolute;
-        border: 2px solid $secondary-dark;
-    }
+
     .horizontal-nav__link {
         font-size: 1.2em;
         margin: 1.5vw;
         cursor: pointer;
         text-decoration: none;
-        color: $secondary-darken;
-        mix-blend-mode: darken;
+        color: $text-on-p;
         &:hover,
         &:active,
         &:focus {
-            color: $primary;
+            color: $n5;
         }
         &.active {
-            color: $primary-dark;
+            color: $n5;
         }
     }
     .rs-picto {
@@ -89,9 +78,9 @@
             margin: 0 1rem;
         }
         svg {
-            fill: $primary;
+            fill: $n4;
             &:hover {
-                fill: $primary-dark;
+                fill: $n4;
             }
         }
     }
@@ -176,6 +165,7 @@
         flex-direction: column;
         transition: all 0.2s;
         height: 22rem;
+        background-color: white;
         justify-content: flex-start;
         .navbar__horizontal--container {
             position: fixed;
@@ -190,20 +180,16 @@
                 transition: all 0.33s ease-in-out;
             }
             .navbar__horizontal--container {
-                top: 1rem;
+                top: 0;
+                background-color: white;
                 .horizontal-nav {
-                    width: 95vw;
                     margin: 0 auto;
+                    padding: 2rem 0;
                     .navbar__title {
                         opacity: 1;
                         position: absolute;
-                        left: 1rem;
-                        font-size: 3rem;
-                    }
-                    .horizontal-nav--inner {
-                        transition: all 0.2;
-                        width: 96vw;
-                        margin-left: -1vw;
+                        left: 4rem;
+                        font-size: 1.2vw;
                     }
                 }
             }

@@ -6,6 +6,7 @@ import PageHeader from '../../components/page-header/PageHeader';
 import Rewards from '../../components/rewards/Rewards';
 import { fetchAPI } from '../../modules/api';
 import { APIParams } from '../../modules/api_types';
+import { observer } from '../../modules/utils';
 import './galery.scss';
 
 const Galery = () => {
@@ -16,26 +17,34 @@ const Galery = () => {
   const [galeries] = createResource(() =>
     fetchAPI('galeries', urlParamsObject)
   );
-  const [tiles, setTiles] = createSignal([]);
   createEffect(() => {
     if (!galeries.loading) {
-      setTiles(galeries()?.data as any);
+      const targets = document.querySelectorAll('.reveal');
+      targets.forEach(function (target) {
+        observer.observe(target);
+      });
     }
   });
   return (
     <div class='galeries'>
-      <h2>Mes galeries photo</h2>
-      <Suspense fallback={<SpiralLoader></SpiralLoader>}>
-        <PageHeader tiles={tiles()}></PageHeader>
+      <Suspense fallback={<SpiralLoader />}>
+        <div class='reveal'>
+          <h2>Mes galeries photo</h2>
+          <PageHeader tiles={galeries()?.data}></PageHeader>
+        </div>
       </Suspense>
-      <div class='galeries__content'>
+      <div class='galeries__content reveal'>
         <CitationWide
           text="La photographie devient de l'art quand elle dévoile l'âme et révèle l'authenticité du sujet."
           author='Monique Moreau'
         />
       </div>
-      <Rewards></Rewards>
-      <CtaBanner />
+      <div class='reveal'>
+        <Rewards></Rewards>
+      </div>
+      <div class='reveal'>
+        <CtaBanner />
+      </div>
     </div>
   );
 };

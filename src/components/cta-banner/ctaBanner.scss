@@ -12,9 +12,9 @@
     &.floating-cta {
         max-width: 90vw;
         border-radius: 3px;
-        box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.2);
-        background-color: $primary;
         margin: 2em auto;
+        background-color: white;
+        border: 3px solid $n1;
         padding: 1em 0;
         h3 {
             font-weight: lighter;
@@ -23,7 +23,7 @@
         .basic-cta-btn {
             z-index: 10;
             border-color: black !important;
-            background-color: rgba($secondary, 0.6);
+            background-color: $primary-light;
             font-family: "BriosoPro-Regular";
             .basic-cta-btn__outline {
                 border-color: $primary-light;
@@ -36,8 +36,8 @@
     }
     @media screen and (min-width: 652px) {
         &.floating-cta {
-            padding-inline: 1em;
-            max-width: 40vw;
+            padding: 2em 1em;
+            max-width: 70vw;
         }
         justify-content: space-evenly;
     }

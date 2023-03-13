@@ -3,8 +3,11 @@
 .tarif-item {
     .tarif-header {
         background-color: $secondary;
-        padding: 6rem 00;
+        padding: 10rem 0;
         margin: 2rem 0;
+        h1 {
+            color: $n5;
+        }
         p {
             color: #444;
             line-height: 2rem;

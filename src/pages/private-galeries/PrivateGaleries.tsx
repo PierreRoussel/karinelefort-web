@@ -1,6 +1,7 @@
 import CtaBanner from '../../components/cta-banner/CtaBanner';
-import { For } from 'solid-js';
+import { For, onMount } from 'solid-js';
 import './privateGaleries.scss';
+import { observer } from '../../modules/utils';
 function PrivateGaleries() {
   const galeries = [
     {
@@ -28,13 +29,20 @@ function PrivateGaleries() {
       link: '#',
     },
   ];
+
+  onMount(()=>{
+    const targets = document.querySelectorAll('.reveal');
+    targets.forEach(function (target) {
+      observer.observe(target);
+    });
+  })
   return (
     <div class='private-galeries'>
-      <div class='galeries__header'>
+      <div class='galeries__header reveal'>
         <h1>Vos photos</h1>
         <span>Votre galerie privée suite à une séance avec moi</span>
       </div>
-      <ul>
+      <ul class='reveal'>
         <For each={galeries}>
           {(galery: any, index) => {
             return (

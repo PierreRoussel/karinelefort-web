@@ -9,17 +9,9 @@
     left: 0;
     right: 0;
     padding: 1.5rem;
-    background-color: $primary;
+    background-color: lighten($secondary,2%);
     color: $text-on-p;
     font-size: 0.9em;
-    .footer__inner {
-        position: absolute;
-        height: 94%;
-        width: 97%;
-        left: 5px;
-        top: 5px;
-        border: 1px solid $secondary;
-    }
 
     .footer__content {
         display: flex;
@@ -31,25 +23,29 @@
         z-index: 8;
 
         .content__center {
-            color: $secondary;
+            color: $text-on-p;
             a {
-                color: $primary-light;
+                color: $text-on-p;
             }
         }
 
         .content__right {
             .separator {
-                border-bottom: 1px solid $primary-dark;
+                border-bottom: 1px solid $n5;
                 width: 60%;
                 margin: auto;
             }
             .content__right--rs-container {
                 padding: 0.5em;
+                svg {
+                    fill: $text-on-p
+                }
             }
         }
     }
     .footer__copyright {
         font-size: 0.8em;
+        color: $text-on-p;
     }
 }
 
@@ -59,12 +55,6 @@
         font-size: 1.2em;
         justify-content: space-around;
 
-        .footer__inner {
-            height: 91%;
-            width: 98%;
-            left: 1%;
-            top: 5%;
-        }
         .footer__content {
             width: 100%;
             flex-direction: row;

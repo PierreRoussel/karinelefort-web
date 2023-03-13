@@ -1,5 +1,6 @@
 import { onMount, For } from 'solid-js';
 import CtaBanner from '../../components/cta-banner/CtaBanner';
+import { observer } from '../../modules/utils';
 import './faq.scss';
 function Faq() {
   let items: any[];
@@ -27,10 +28,13 @@ function Faq() {
   ];
   onMount(() => {
     items = document.querySelectorAll('.accordion button') as any;
+    const targets = document.querySelectorAll('.reveal');
+    targets.forEach(function (target) {
+      observer.observe(target);
+    });
   });
 
   const toggleAccordion = (event: any) => {
-    console.log('🚀 ~ event:', event);
     const itemToggle = event.target.getAttribute('aria-expanded');
 
     for (let i = 0; i < items.length; i++) {
@@ -51,7 +55,7 @@ function Faq() {
               if (index() >= 4) return;
               return (
                 <div
-                  class='accordion-item'
+                  class='accordion-item reveal'
                   onClick={(event) => toggleAccordion(event)}
                 >
                   <button
@@ -70,7 +74,9 @@ function Faq() {
           </For>
         </div>
       </div>
-      <CtaBanner />
+      <div class='reveal'>
+        <CtaBanner />
+      </div>
     </div>
   );
 }

@@ -18,6 +18,7 @@ import SquaredGalery from '../../components/squared-galery/SquaredGalery';
 import { TextBanner } from '../../components/text-banner/TextBanner';
 import { fetchPage } from '../../modules/api';
 import { CtaWrapper } from '../../modules/api_types';
+import { observer } from '../../modules/utils';
 import './home.scss';
 
 const Home = () => {
@@ -31,7 +32,7 @@ const Home = () => {
         alt: '',
       },
       link: '/faq',
-      backgroundColor: 'hsl(0, 54%, 95%)',
+      backgroundColor: '#eedbdf',
     },
     {
       caller: 'détails des',
@@ -41,7 +42,7 @@ const Home = () => {
         alt: '',
       },
       link: '/tarifs',
-      backgroundColor: 'hsl(0, 54%, 75%)',
+      backgroundColor: '#d2adad',
     },
     {
       caller: 'découvrez',
@@ -61,7 +62,7 @@ const Home = () => {
         alt: '',
       },
       link: '/photos',
-      backgroundColor: 'hsl(0, 54%, 65%)',
+      backgroundColor: '#e7cdcf',
     },
     {
       caller: 'réserver',
@@ -71,7 +72,7 @@ const Home = () => {
         alt: '',
       },
       link: 'https://www.fotostudio.io/lead_forms/3762',
-      backgroundColor: 'hsl(0, 54%, 55%)',
+      backgroundColor: '#f9ebeb',
     },
   ];
   const imageGaleryImages: any[] = [
@@ -147,23 +148,6 @@ const Home = () => {
 
   createEffect(() => {
     if (!homepage.loading) {
-      const threshold = 0.5;
-      const options = {
-        root: null,
-        rootMargin: '0px',
-        threshold,
-      };
-
-      const handleIntersect = function (entries: any, observer: any) {
-        entries.forEach(function (entry: any) {
-          if (entry.intersectionRatio > threshold) {
-            entry.target.classList.remove('reveal');
-            entry.target.classList.add('reveal-loaded');
-            observer.unobserve(entry.target);
-          }
-        });
-      };
-      const observer = new IntersectionObserver(handleIntersect, options);
       const targets = document.querySelectorAll('.reveal');
       targets.forEach(function (target) {
         observer.observe(target);
@@ -205,7 +189,7 @@ const Home = () => {
         </div>
       }
     >
-      <div class='reveal-loaded'>
+      <div class='home-page'>
         <div id='carousel'>
           <div id='slide-container'>
             <For each={carouselItems() as any}>
@@ -245,12 +229,10 @@ const Home = () => {
         <div class='reveal'>
           <IrisTestimonials />
         </div>
-        <div class='reveal'>
+        <div class='reveal' style={'margin-bottom:0'}>
           <TextBanner />
         </div>
-        <div class='reveal'>
-          <SquaredGalery images={imageGaleryImages} />
-        </div>
+        <SquaredGalery images={imageGaleryImages} />
       </div>
     </Suspense>
   );

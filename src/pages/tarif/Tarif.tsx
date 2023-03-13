@@ -1,9 +1,11 @@
-import { createEffect, createResource, createSignal } from 'solid-js';
+import { createEffect, Suspense,createResource, createSignal } from 'solid-js';
 import CitationWide from '../../components/citation-wide/CitationWide';
+import SpiralLoader from '../../components/loaders/SpiralLoader';
 import PageHeader from '../../components/page-header/PageHeader';
 import SquaredGalery from '../../components/squared-galery/SquaredGalery';
 import { fetchAPI } from '../../modules/api';
 import { APIParams } from '../../modules/api_types';
+import { observer } from '../../modules/utils';
 
 function Tarif() {
   const imageGaleryImages: any[] = [
@@ -30,23 +32,33 @@ function Tarif() {
   const [tiles, setTiles] = createSignal([]);
   createEffect(() => {
     if (!galeries.loading) {
+      const targets = document.querySelectorAll('.reveal');
+      targets.forEach(function (target) {
+        observer.observe(target);
+      });
       setTiles(galeries()?.data as any);
     }
   });
   return (
     <div class='galeries'>
-      <PageHeader
-        title='Prestations'
-        subtitle='Retrouvez mes différentes prestations photo'
-        tiles={tiles()}
-      ></PageHeader>
-      <div class='galeries__content'>
+      <Suspense fallback={<SpiralLoader/>}>
+      <div class='reveal'>
+        <PageHeader
+          title='Prestations'
+          subtitle='Retrouvez mes différentes prestations photo'
+          tiles={galeries()?.data}
+        ></PageHeader>
+      </div>
+      </Suspense>
+      <div class='galeries__content reveal'>
         <CitationWide
           text="La photographie devient de l'art quand elle dévoile l'âme et révèle l'authenticité du sujet."
           author='Monique Moreau'
         />
       </div>
-      <SquaredGalery images={imageGaleryImages} />
+      <div class='reveal'>
+        <SquaredGalery images={imageGaleryImages} />
+      </div>
     </div>
   );
 }
