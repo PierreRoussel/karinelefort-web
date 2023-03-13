@@ -5,7 +5,7 @@ function Contact() {
     <div class='contact'>
       <div class='container'>
         <h2>Contactez-moi</h2>
-        <div class='form-container'>
+        <div class='form-container reveal-loaded'>
           <iframe
             src='https://www.fotostudio.io/lead_forms/3762'
             allowfullscreen

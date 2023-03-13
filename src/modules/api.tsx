@@ -81,14 +81,14 @@ export async function fetchAPI(
 export async function fetchPage(
   category: string,
   slug?: string,
-  locale = 'fr-FR'
+  locale?: string
 ) {
   const headers = {
     'Content-Type': 'application/json',
     'Authorization': `bearer ${import.meta.env.VITE_STRAPI_KEY}`,
   };
   const requestUrl = `${getStrapiURL(
-    `/api/${category}?filters[locale][$eq]=${locale}&populate=*${slug ? '&filters[slug][$eq]=':''}`
+    `/api/${category}?${locale ? `filters[locale][$eq]=${locale}` : ''}&populate=deep${slug ? '&filters[slug][$eq]=':''}`
   )}`;
   const response = await axios.get(requestUrl, { headers });
 

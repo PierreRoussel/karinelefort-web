@@ -4,6 +4,8 @@ import { Portal } from 'solid-js/web';
 import styles from './App.module.scss';
 import Footer from './components/footer/Footer';
 import Header from './components/header/Header';
+import Concours from './pages/concours/Concours';
+import Faq from './pages/faq/Faq';
 import Galery from './pages/galery/Galery';
 import Tarif from './pages/tarif/Tarif';
 import TarifItem from './pages/tarif/TarifItem';
@@ -33,12 +35,13 @@ const App: Component = () => {
       <Header scrolled={scrolled() <= 1 ? true : false} />
       <Routes>
         <Route path='/' component={lazy(() => import('./pages/home/Home'))} />
+        <Route path='/concours' component={Concours} />
         <Route path='/photos' component={Galery} />
         <Route
           path='/photos/:slug'
           component={lazy(() => import('./pages/galery/GaleryItem'))}
         />
-        <Route path='/faq' component={lazy(() => import('./pages/faq/Faq'))} />
+        <Route path='/faq' component={Faq} />
         <Route
           path='/contact'
           component={lazy(() => import('./pages/contact/Contact'))}

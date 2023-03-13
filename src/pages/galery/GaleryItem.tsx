@@ -1,7 +1,7 @@
-import { useLocation, useParams } from '@solidjs/router';
+import { useParams } from '@solidjs/router';
 import { createEffect, createResource, createSignal, For } from 'solid-js';
 import CtaBanner from '../../components/cta-banner/CtaBanner';
-import { fetchAPI, fetchPage } from '../../modules/api';
+import { fetchAPI } from '../../modules/api';
 import { APIParams } from '../../modules/api_types';
 
 function GaleryItem() {
