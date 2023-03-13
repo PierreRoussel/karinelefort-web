@@ -9,6 +9,16 @@
     transition: 0.2s;
     cursor: pointer;
 
+    &.reversed {
+        background-color: transparent;
+        &:hover {
+            background-color: $primary;
+        }
+        &:active {
+            background-color: $primary;
+        }
+    }
+
     .basic-cta-btn__outline {
         position: absolute;
         border: 1px solid $primary;

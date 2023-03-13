@@ -26,7 +26,6 @@ function PageHeader(props: any) {
         </For>
       </div>
     </div>
-  );
-}
+  );}
 
 export default PageHeader;

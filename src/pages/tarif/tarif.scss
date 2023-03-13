@@ -1,0 +1,59 @@
+@import "../../assets/variables";
+
+.tarif-item {
+    .tarif-header {
+        background-color: $secondary;
+        padding: 6rem 00;
+        margin: 2rem 0;
+        p {
+            color: #444;
+            line-height: 2rem;
+        }
+    }
+    .offres-container {
+        width: 100%;
+        margin-bottom: 4rem;
+        .offre-item {
+            height: 70vh;
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            &:nth-child(2n) {
+                flex-direction: row-reverse;
+            }
+            > div {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex: 1;
+            }
+            .offre-description {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                h2{
+                    margin: 0;
+                    color: $secondary-darken;
+                }
+                p{
+                    font-size: 1.6rem;
+                }
+                button {
+                    margin-right: auto;
+                    margin-left: 15%;
+                    width: 20rem;
+                }
+                > * {
+                    width: 70%;
+                    text-align: left;
+                }
+            }
+            .offre-image {
+                background-size: cover;
+                background-position: center;
+            }
+        }
+    }
+}
