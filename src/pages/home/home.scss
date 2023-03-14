@@ -63,6 +63,19 @@
       display: none;
     }
   }
+
+  @media screen and (max-width: 652px) {
+    .reveal,
+    .reveal-loaded {
+      margin: 6em 0;
+      &.separator-title {
+        margin: 3em 00;
+      }
+    }
+    .separator-title {
+      font-size: 1.7rem;
+    }
+  }
   @media screen and (min-width: 652px) {
     .reveal,
     .reveal-loaded {

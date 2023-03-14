@@ -36,6 +36,22 @@
             margin: 0.4em 0;
         }
     }
+    @media screen and (max-width: 652px) {
+        h2 {
+            font-size: 2rem;
+            text-align: center;
+            width: 100%;
+            text-indent: 0;
+        }
+        .cta-wrapper__content--item {
+            &:nth-child(1n) {
+                transform: translateX(-5%);
+            }
+            &:nth-child(2n) {
+                transform: translateX(5%);
+            }
+        }
+    }
 }
 
 a.wide-cta {
@@ -67,7 +83,7 @@ a.wide-cta {
         align-items: center;
         text-align: center;
         overflow: hidden;
-        height: 8em;
+        height: 16rem;
         i {
             font-size: 2em;
             font-family: "P22_Cezanne_Pro_Regular";
@@ -84,10 +100,15 @@ a.wide-cta {
         width: 100%;
         background-repeat: no-repeat;
         background-size: cover;
+        background-position: center;
         height: 16em;
     }
+    @media screen and (max-width: 652px) {
+        .wide-cta__img {
+            height: 16rem;
+        }
+    }
 }
-
 @media screen and (min-width: 652px) {
     .cta-wrapper {
         height: 100%;

@@ -3,7 +3,7 @@
 .img__container {
   position: relative;
   .img__inner {
-    border: 2px solid $secondary-dark;
+    border: 2px solid $n1;
     inset: 2px;
     z-index: -1;
     width: 100%;
@@ -14,7 +14,7 @@
   .img__img {
     width: 100%;
     border-radius: 2px;
-    height: 20em;
+    height: 25em;
     background-size: cover;
     background-position: 50% 50%;
   }
@@ -23,38 +23,44 @@
 @media screen and (min-width: 652px) {
   .img__container {
     width: 95vw;
-    height: 72vh;
+    height: 68vh;
     margin: 0 auto;
     animation: comefrombottom .3s ease-in;
+    position: relative;
 
     .img__inner {
+
+      &.reveal {
+        opacity: 0!important;
+      }
+
       inset: 6px;
       display: inline-block;
       height: 100%;
-      animation: appear 0.3s;
-      animation-delay: 250ms;
+      animation: appear 0.5s ease-in;
+      background-color: $n1;
+
       &::after {
         content: "";
         position: absolute;
+        background-color: $secondary;
         inset: 16px 16px -16px -16px;
-        animation: appear 0.3s;
         border: 3px solid $secondary;
       }
     }
-    position: relative;
     .img__img {
       width: 100%;
       background-position-x: center;
       background-size: cover;
       background-repeat: no-repeat;
-      height: 72vh;
+      height: 68vh;
     }
   }
 }
 
 @keyframes appear {
   0% {
-    transform: scale(0);
+    transform: scale(.8);
   }
   100% {
     transform: scale(1);

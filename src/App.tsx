@@ -4,6 +4,7 @@ import { Portal } from 'solid-js/web';
 import styles from './App.module.scss';
 import Footer from './components/footer/Footer';
 import Header from './components/header/Header';
+import NotFound from './pages/404/404';
 import Concours from './pages/concours/Concours';
 import Faq from './pages/faq/Faq';
 import Galery from './pages/galery/Galery';
@@ -59,6 +60,7 @@ const App: Component = () => {
             () => import('./pages/private-galeries/PrivateGaleries')
           )}
         />
+        <Route path='/*' component={NotFound} />
         <Portal>
           <button
             id='scroll-to-top'
