@@ -122,8 +122,10 @@ a.wide-cta {
         .cta-wrapper__content {
             justify-content: space-evenly;
             flex-direction: row;
+            max-width: 95vw;
+            flex-wrap: wrap;
+
             .cta-wrapper__content--item {
-                margin: 0 2em;
                 &:nth-child(2n) {
                     transform: translateY(15%);
                 }

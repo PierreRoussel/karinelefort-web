@@ -36,11 +36,14 @@
                 flex-direction: column;
                 justify-content: center;
                 align-items: center;
-                h2{
+                max-height: 90%;
+                padding-block: 5%;
+
+                h2 {
                     margin: 0;
                     color: $secondary-darken;
                 }
-                p{
+                p {
                     font-size: 1.6rem;
                 }
                 button {
@@ -56,6 +59,34 @@
             .offre-image {
                 background-size: cover;
                 background-position: center;
+            }
+        }
+    }
+    @media screen and (max-width: 651px) {
+        .tarif-header {
+            padding: 2.5rem 0;
+            h1 {
+                font-size: 3rem;
+            }
+            p {
+                font-size: 1.2rem;
+            }
+        }
+        .offres-container {
+            gap: 1rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            .offre-item {
+                flex-direction: column-reverse !important;
+                .offre-description {
+                    justify-content: flex-start;
+                    padding-top: 1rem;
+                    p {
+                        font-size: 1.2rem;
+                    }
+                }
             }
         }
     }

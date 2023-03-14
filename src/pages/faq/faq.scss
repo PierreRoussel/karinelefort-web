@@ -11,6 +11,7 @@ $blue: $n5;
     padding: 3rem;
     min-height: 39vh;
     width: 70rem;
+    max-width: 95vw;
     box-sizing: border-box;
 
     > * {
@@ -63,7 +64,8 @@ $blue: $n5;
             justify-content: center;
             align-items: center;
             position: absolute;
-            top: 18px;
+            top: 50% !important;
+            transform: translateY(-50%);
             right: 0;
             width: 22px;
             height: 22px;

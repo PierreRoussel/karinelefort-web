@@ -12,7 +12,6 @@ function Contact() {
           ></iframe>
         </div>
       </div>
-      <CtaBanner />
     </div>
   );
 }
