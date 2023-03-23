@@ -190,26 +190,28 @@ const Home = () => {
       }
     >
       <div class='home-page'>
-        <div id='carousel'>
-          <div id='slide-container'>
-            <For each={carouselItems() as any}>
-              {(slide, i) => {
-                return (
-                  <div class='slide' data-slideIndex={i}>
-                    <FullWidthImgWithOutline
-                      // @ts-ignore
-                      imgUrl={slide}
-                    ></FullWidthImgWithOutline>
-                  </div>
-                );
-              }}
-            </For>
+        <h1>
+          <div id='carousel'>
+            <div id='slide-container'>
+              <For each={carouselItems() as any}>
+                {(slide, i) => {
+                  return (
+                    <div class='slide' data-slideIndex={i}>
+                      <FullWidthImgWithOutline
+                        // @ts-ignore
+                        imgUrl={slide}
+                      ></FullWidthImgWithOutline>
+                    </div>
+                  );
+                }}
+              </For>
+            </div>
+            <div class='controls'>
+              <div onClick={() => carouselNext('backward')} class='left'></div>
+              <div onClick={() => carouselNext('forward')} class='right'></div>
+            </div>
           </div>
-          <div class='controls'>
-            <div onClick={() => carouselNext('backward')} class='left'></div>
-            <div onClick={() => carouselNext('forward')} class='right'></div>
-          </div>
-        </div>
+        </h1>
 
         <h2 class='separator-title reveal'>
           <q>{homepage()?.['phraseAccroche']}</q>

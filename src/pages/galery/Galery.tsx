@@ -8,7 +8,7 @@ import { fetchAPI } from '../../modules/api';
 import { APIParams } from '../../modules/api_types';
 import { observer } from '../../modules/utils';
 import './galery.scss';
-
+import {Title} from 'solid-meta'
 const Galery = () => {
   const urlParamsObject: APIParams = {
     publicationState: 'live',
@@ -27,6 +27,7 @@ const Galery = () => {
   });
   return (
     <div class='galeries'>
+      <Title>Mes galeries - Karine Lefort Photographie</Title>
       <Suspense fallback={<SpiralLoader />}>
         <div class='reveal'>
           <h2>Mes galeries photo</h2>

@@ -1,6 +1,7 @@
 import { onMount, For } from 'solid-js';
 import CtaBanner from '../../components/cta-banner/CtaBanner';
 import { observer } from '../../modules/utils';
+import {Title} from 'solid-meta'
 import './faq.scss';
 function Faq() {
   let items: any[];
@@ -47,6 +48,7 @@ function Faq() {
   };
   return (
     <div class='faq'>
+      <Title>FAQ - Karine Lefort Photographie</Title>
       <div class='container'>
         <h2>Questions récurrentes</h2>
         <div class='accordion'>

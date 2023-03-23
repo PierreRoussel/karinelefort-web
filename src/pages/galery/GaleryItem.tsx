@@ -3,6 +3,7 @@ import { createEffect, createResource, createSignal, For } from 'solid-js';
 import CtaBanner from '../../components/cta-banner/CtaBanner';
 import { fetchAPI } from '../../modules/api';
 import { APIParams } from '../../modules/api_types';
+import {Title} from 'solid-meta'
 
 function GaleryItem() {
   const params = useParams();
@@ -28,6 +29,8 @@ function GaleryItem() {
   });
   return (
     <div class='galery-item'>
+      <Title>{`Mes photos ${params.slug}`} - Karine Lefort Photographie</Title>
+
       <h1>{title()}</h1>
       <div class='grid-container'>
         <For each={photos()}>
@@ -39,8 +42,8 @@ function GaleryItem() {
               >
                 <img
                   src={photo['attributes'].url.toString()}
-                  alt=''
-                  srcset=''
+                  alt={photo['attributes'].alternativeText}
+                  loading='lazy'
                 />
               </div>
             );

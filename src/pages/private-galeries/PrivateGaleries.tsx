@@ -12,6 +12,7 @@ import { APIParams } from '../../modules/api_types';
 import './privateGaleries.scss';
 import SpiralLoader from '../../components/loaders/SpiralLoader';
 import { Portal } from 'solid-js/web';
+import { Title } from 'solid-meta';
 
 function PrivateGaleries() {
   const [galeryIdx, setGaleryIdx] = createSignal(-1);
@@ -37,6 +38,7 @@ function PrivateGaleries() {
   }
   return (
     <div class='private-galeries'>
+      <Title>Vos photos - Karine Lefort Photographie</Title>
       <div class='galeries__header reveal'>
         <h1>Vos photos</h1>
         <span>Votre galerie privée suite à une séance avec moi</span>
@@ -87,9 +89,9 @@ function PrivateGaleries() {
               <div class='underline'></div>
             </div>
             <button class={`btn`}>
-                <div class='btn__outline'></div>
-                Entrer
-              </button>
+              <div class='btn__outline'></div>
+              Entrer
+            </button>
           </div>
         </Portal>
       </Suspense>

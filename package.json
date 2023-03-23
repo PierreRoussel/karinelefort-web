@@ -26,6 +26,7 @@
     "qs": "^6.11.0",
     "solid-custom-navigation": "^0.2.0",
     "solid-js": "^1.5.1",
+    "solid-meta": "^0.28.1",
     "solid-transition-group": "^0.0.11"
   }
 }

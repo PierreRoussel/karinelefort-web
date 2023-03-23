@@ -13,6 +13,7 @@ import { fetchAPI } from '../../modules/api';
 import { APIParams } from '../../modules/api_types';
 import { observer } from '../../modules/utils';
 import './tarif.scss';
+import { Title } from 'solid-meta';
 
 function TarifItem() {
   const params = useParams();
@@ -41,42 +42,45 @@ function TarifItem() {
   });
 
   return (
-    <Suspense fallback={<SpiralLoader />}>
-      <div class='tarif-item'>
-        <div class='tarif-header reveal'>
-          <h1>Votre shooting {galerieItems()?.data[0].attributes.Nom}</h1>
-          <p style={'max-width:60vw;margin:auto;text-align:left'}>
-            {galerieItems()?.data[0].attributes.Description}
-          </p>
-        </div>
-        <div class='offres-container reveal-loaded'>
-          <For each={offres()}>
-            {(offre: any, index) => {
-              return (
-                <div class='offre-item'>
-                  <div class='offre-description '>
-                    <h2>{offre.Titre}</h2>
-                    <p>{offre.Description}</p>
-                    <CtaBtn
-                      reversed={true}
-                      link={'https://www.fotostudio.io/lead_forms/3762'}
-                      btnTitle={`Réserver une séance ${offre.Titre}`}
-                    />
+    <div>
+      <Title>{`Mes prestations ${params.slug}`} - Karine Lefort Photographie</Title>
+      <Suspense fallback={<SpiralLoader />}>
+        <div class='tarif-item'>
+          <div class='tarif-header reveal'>
+            <h1>Votre shooting {galerieItems()?.data[0].attributes.Nom}</h1>
+            <p style={'max-width:60vw;margin:auto;text-align:left'}>
+              {galerieItems()?.data[0].attributes.Description}
+            </p>
+          </div>
+          <div class='offres-container reveal-loaded'>
+            <For each={offres()}>
+              {(offre: any, index) => {
+                return (
+                  <div class='offre-item'>
+                    <div class='offre-description '>
+                      <h2>{offre.Titre}</h2>
+                      <p>{offre.Description}</p>
+                      <CtaBtn
+                        reversed={true}
+                        link={'https://www.fotostudio.io/lead_forms/3762'}
+                        btnTitle={`Réserver une séance ${offre.Titre}`}
+                      />
+                    </div>
+                    <div
+                      class='offre-image'
+                      style={`background-image:url(${offre.Image.data.attributes.url});background-color:#000`}
+                    ></div>
                   </div>
-                  <div
-                    class='offre-image'
-                    style={`background-image:url(${offre.Image.data.attributes.url})`}
-                  ></div>
-                </div>
-              );
-            }}
-          </For>
+                );
+              }}
+            </For>
+          </div>
+          <div class='reveal'>
+            <CtaBanner text="Besoin d'un photographe ?" />
+          </div>
         </div>
-        <div class='reveal'>
-          <CtaBanner text="Besoin d'un photographe ?" />
-        </div>
-      </div>
-    </Suspense>
+      </Suspense>
+    </div>
   );
 }
 

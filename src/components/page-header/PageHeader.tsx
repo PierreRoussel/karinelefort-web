@@ -19,6 +19,7 @@ function PageHeader(props: any) {
                 link={item['attributes'].slug.toString()}
                 lazy
                 imgSrc={item['attributes'].Previsualisation['data']['attributes'].url.toString()}
+                alt={item['attributes'].Previsualisation['data']['attributes'].alternativeText}
                 delay={index()}
               />
             );

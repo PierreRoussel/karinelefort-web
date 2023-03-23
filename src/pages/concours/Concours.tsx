@@ -2,6 +2,7 @@ import { createResource, Suspense, createEffect, For } from 'solid-js';
 import CtaBanner from '../../components/cta-banner/CtaBanner';
 import SpiralLoader from '../../components/loaders/SpiralLoader';
 import { fetchPage } from '../../modules/api';
+import { Title } from 'solid-meta';
 import { observer } from '../../modules/utils';
 import './concours.scss';
 function Concours() {
@@ -18,6 +19,8 @@ function Concours() {
   });
   return (
     <div class='concours'>
+      <Title>Mes prix - Karine Lefort Photographie</Title>
+
       <Suspense fallback={<SpiralLoader />}>
         <h1 class='reveal'>{concours()?.Titre || 'Mes récompenses'}</h1>
         <div class='grid-container reveal'>
@@ -30,8 +33,8 @@ function Concours() {
                 >
                   <img
                     src={photo?.Photo.data['attributes'].url.toString()}
-                    alt=''
-                    srcset=''
+                    loading='lazy'
+                    alt={photo?.Photo.data['attributes'].url.alternativeText}
                   />
                   <span>{photo?.Libelle || ''}</span>
                 </div>

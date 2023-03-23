@@ -6,6 +6,7 @@ import SquaredGalery from '../../components/squared-galery/SquaredGalery';
 import { fetchAPI } from '../../modules/api';
 import { APIParams } from '../../modules/api_types';
 import { observer } from '../../modules/utils';
+import {Title} from 'solid-meta'
 
 function Tarif() {
   const imageGaleryImages: any[] = [
@@ -41,6 +42,8 @@ function Tarif() {
   });
   return (
     <div class='galeries'>
+      <Title>Mes prestations - Karine Lefort Photographie</Title>
+
       <Suspense fallback={<SpiralLoader/>}>
       <div class='reveal'>
         <PageHeader
