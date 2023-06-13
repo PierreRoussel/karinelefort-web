@@ -1,7 +1,6 @@
 import { useNavigate } from '@solidjs/router';
 import './imageWithTitleOverlay.scss';
 function ImageWithTitleOverlay(props: any) {
-  console.log('🚀 ~ props:', props);
   const navigate = useNavigate();
   return (
     <div

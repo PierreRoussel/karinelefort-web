@@ -14,6 +14,7 @@ import { APIParams } from '../../modules/api_types';
 import { observer } from '../../modules/utils';
 import './tarif.scss';
 import { Title } from 'solid-meta';
+import parseMd from '../../modules/parser/mdParser';
 
 function TarifItem() {
   const params = useParams();
@@ -22,6 +23,7 @@ function TarifItem() {
     filters: `[slug][$eq]=${params.slug}`,
     populate: 'deep',
   };
+  let description: HTMLElement;
 
   const [galerieItems] = createResource(() =>
     fetchAPI('galeries', urlParamsObject)
@@ -37,19 +39,26 @@ function TarifItem() {
       if (!galerieItems()?.data.length) return;
       //@ts-ignore
       const datas = galerieItems()?.data[0].attributes;
+      description.innerHTML = parseMd(datas.Description || '')
       setOffres(datas.Offre as any);
     }
   });
 
   return (
     <div>
-      <Title>{`Mes prestations ${params.slug}`} - Karine Lefort Photographie</Title>
+      <Title>
+        {`Mes prestations ${params.slug}`} - Karine Lefort Photographie
+      </Title>
       <Suspense fallback={<SpiralLoader />}>
         <div class='tarif-item'>
           <div class='tarif-header reveal'>
             <h1>Votre shooting {galerieItems()?.data[0].attributes.Nom}</h1>
-            <p style={'max-width:60vw;margin:auto;text-align:left'}>
-              {galerieItems()?.data[0].attributes.Description}
+            <p
+              style={
+                'max-width:60vw;margin:auto;text-align:left;white-space:pre-wrap'
+              }
+              ref={description}
+            >
             </p>
           </div>
           <div class='offres-container reveal-loaded'>
@@ -59,7 +68,7 @@ function TarifItem() {
                   <div class='offre-item'>
                     <div class='offre-description '>
                       <h2>{offre.Titre}</h2>
-                      <p>{offre.Description}</p>
+                      <p style='white-space:pre-wrap;'>{offre.Description}</p>
                       <CtaBtn
                         reversed={true}
                         link={'https://www.fotostudio.io/lead_forms/3762'}

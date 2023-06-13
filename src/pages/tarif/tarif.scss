@@ -7,10 +7,15 @@
         margin: 2rem 0;
         h1 {
             color: $n5;
+            line-height: 3.5rem;
         }
         p {
             color: #444;
             line-height: 2rem;
+            p {
+                margin: -1rem auto;
+                padding: 0;
+            }
         }
     }
     .offres-container {

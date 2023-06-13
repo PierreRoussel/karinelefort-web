@@ -225,7 +225,7 @@ const Home = () => {
         <div class='reveal'>
           <BubbleWrapper bubbles={bubbles()} />
         </div>
-        <div class='reveal'>
+        <div class=''>
           <Resumee resumee={resumee()} />
         </div>
         <div class='reveal'>
