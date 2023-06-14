@@ -23,58 +23,7 @@ import './home.scss';
 
 const Home = () => {
   const [autoplay, setAutoplay] = createSignal(undefined);
-  const ctaWrapperItems: CtaWrapper[] = [
-    {
-      caller: 'se renseigner',
-      service: 'FAQ',
-      image: {
-        url: '/62c58e2f4d4d7603225062.jpg',
-        alt: '',
-      },
-      link: '/faq',
-      backgroundColor: '#eedbdf',
-    },
-    {
-      caller: 'détails des',
-      service: 'tarifs',
-      image: {
-        url: '/616c731a3c80f796838716.jpg',
-        alt: '',
-      },
-      link: '/tarifs',
-      backgroundColor: '#d2adad',
-    },
-    {
-      caller: 'découvrez',
-      service: 'les iris',
-      image: {
-        url: '/iris/1.jpg',
-        alt: '',
-      },
-      link: '/tarifs/iris',
-      backgroundColor: '#fff',
-    },
-    {
-      caller: 'consulter',
-      service: 'mes collections',
-      image: {
-        url: 'gr10.jpg',
-        alt: '',
-      },
-      link: '/photos',
-      backgroundColor: '#e7cdcf',
-    },
-    {
-      caller: 'réserver',
-      service: 'une séance',
-      image: {
-        url: '/reward1.jpg',
-        alt: '',
-      },
-      link: 'https://www.fotostudio.io/lead_forms/3762',
-      backgroundColor: '#f9ebeb',
-    },
-  ];
+
   const imageGaleryImages: any[] = [
     { url: '/61ccc9046f411597372612.jpg', alt: '' },
     { url: '/615a17326ab84037154751.jpg', alt: '' },
@@ -144,6 +93,7 @@ const Home = () => {
   const [homepage] = createResource(() => fetchPage('page-d-accueil'));
   const [bubbles, setBubbles] = createSignal([]);
   const [resumee, setResumee] = createSignal({});
+  const [ctaWrapper, setCtaWrapper] = createSignal([] as CtaWrapper[]);
   const [carouselItems, setCarouselItems] = createSignal([]);
 
   createEffect(() => {
@@ -175,6 +125,18 @@ const Home = () => {
       setCarouselItems(
         homepage()?.['Carousel'].data.map((item: any) => {
           return item.attributes.url;
+        })
+      );
+
+      setCtaWrapper(
+        homepage()?.['bookmark'].map((item: any) => {
+          return {
+            'caller': item.Accroche,
+            'service': item.Nom,
+            'image': item.Image.data.attributes,
+            'link': item.Lien,
+            'backgroundColor': item.Couleur,
+          };
         })
       );
       autoplayCarousel();
@@ -217,7 +179,7 @@ const Home = () => {
           <q>{homepage()?.['phraseAccroche']}</q>
         </h2>
         <div class='reveal'>
-          <BookMarkWrapper ctaItems={ctaWrapperItems} />
+          <BookMarkWrapper ctaItems={ctaWrapper()} />
         </div>
         <div class='reveal'>
           <CtaBanner />
