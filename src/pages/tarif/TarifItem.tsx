@@ -23,13 +23,15 @@ function TarifItem() {
     filters: `[slug][$eq]=${params.slug}`,
     populate: 'deep',
   };
-  let description: HTMLElement;
+
+  let description: HTMLParagraphElement = {} as HTMLParagraphElement;
 
   const [galerieItems] = createResource(() =>
     fetchAPI('galeries', urlParamsObject)
   );
 
   const [offres, setOffres] = createSignal([]);
+
   createEffect(() => {
     if (!galerieItems.loading) {
       const targets = document.querySelectorAll('.reveal');
@@ -39,7 +41,7 @@ function TarifItem() {
       if (!galerieItems()?.data.length) return;
       //@ts-ignore
       const datas = galerieItems()?.data[0].attributes;
-      description.innerHTML = parseMd(datas.Description || '')
+      description.innerHTML = parseMd(datas.Description || '');
       setOffres(datas.Offre as any);
     }
   });
@@ -58,8 +60,7 @@ function TarifItem() {
                 'max-width:60vw;margin:auto;text-align:left;white-space:pre-wrap'
               }
               ref={description}
-            >
-            </p>
+            ></p>
           </div>
           <div class='offres-container reveal-loaded'>
             <For each={offres()}>

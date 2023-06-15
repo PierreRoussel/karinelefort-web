@@ -16,28 +16,13 @@ import SpiralLoader from '../../components/loaders/SpiralLoader';
 import { Resumee } from '../../components/resumee/Resumee';
 import SquaredGalery from '../../components/squared-galery/SquaredGalery';
 import { TextBanner } from '../../components/text-banner/TextBanner';
-import { fetchPage } from '../../modules/api';
+import { fetchAPI, fetchPage } from '../../modules/api';
 import { CtaWrapper } from '../../modules/api_types';
 import { observer } from '../../modules/utils';
 import './home.scss';
 
 const Home = () => {
   const [autoplay, setAutoplay] = createSignal(undefined);
-
-  const imageGaleryImages: any[] = [
-    { url: '/61ccc9046f411597372612.jpg', alt: '' },
-    { url: '/615a17326ab84037154751.jpg', alt: '' },
-    { url: '/62c58e2f4d4d7603225062.jpg', alt: '' },
-    { url: '/616c731a3c80f796838716.jpg', alt: '' },
-    {
-      url: '/278304567_708203026882538_4413979470828640160_n.jpg',
-      alt: '',
-    },
-    {
-      url: '/270297889_4498951966841054_2309659315178713093_n.jpg',
-      alt: '',
-    },
-  ];
 
   const getNewScrollPosition = (arg: any, el: any, width: any) => {
     const gap = 10;
@@ -91,7 +76,9 @@ const Home = () => {
 
   /** LIFECYCLE */
   const [homepage] = createResource(() => fetchPage('page-d-accueil'));
-  const [bubbles, setBubbles] = createSignal([]);
+  const [bubbles, setBubbles] = createSignal(
+    [] as { title: string; text: string }[]
+  );
   const [resumee, setResumee] = createSignal({});
   const [ctaWrapper, setCtaWrapper] = createSignal([] as CtaWrapper[]);
   const [carouselItems, setCarouselItems] = createSignal([]);
@@ -102,7 +89,7 @@ const Home = () => {
       targets.forEach(function (target) {
         observer.observe(target);
       });
-      //@ts-ignore
+
       setBubbles([
         { title: 'Mes horaires', text: homepage()?.['Horaires'] },
         {
@@ -115,13 +102,14 @@ const Home = () => {
           link: homepage()?.['lien'],
         },
       ]);
-      //@ts-ignore
+
       setResumee({
         presA: homepage()?.['presentationA'],
         presB: homepage()?.['presentationB'],
         presC: homepage()?.['presentationC'],
         imgUrl: homepage()?.['presentationImage'].data.attributes.url,
       });
+
       setCarouselItems(
         homepage()?.['Carousel'].data.map((item: any) => {
           return item.attributes.url;
@@ -196,7 +184,7 @@ const Home = () => {
         <div class='reveal' style={'margin-bottom:0'}>
           <TextBanner />
         </div>
-        <SquaredGalery images={imageGaleryImages} />
+        <SquaredGalery />
       </div>
     </Suspense>
   );
