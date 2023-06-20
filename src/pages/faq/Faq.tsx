@@ -1,38 +1,33 @@
-import { onMount, For } from 'solid-js';
+import {
+  onMount,
+  For,
+  createResource,
+  Suspense,
+  Show,
+  createEffect,
+  on,
+} from 'solid-js';
 import CtaBanner from '../../components/cta-banner/CtaBanner';
 import { observer } from '../../modules/utils';
-import {Title} from 'solid-meta'
+import { Title } from 'solid-meta';
 import './faq.scss';
+import { fetchPage } from '../../modules/api';
+import SpiralLoader from '../../components/loaders/SpiralLoader';
 function Faq() {
   let items: any[];
-  const questions = [
-    {
-      question: 'Une question intéressante ?',
-      reponse:
-        'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Omnis minus labore, impedit veritatis enim itaque iure mollitia nemo ut! Nemo, ducimus. Reiciendis praesentium cupiditate culpa suscipit, dolor maiores quam ipsa.',
-    },
-    {
-      question: 'Une question intéressante 2 ?',
-      reponse:
-        'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Omnis minus labore, impedit veritatis enim itaque iure mollitia nemo ut! Nemo, ducimus. Reiciendis praesentium cupiditate culpa suscipit, dolor maiores quam ipsa.',
-    },
-    {
-      question: 'Une question intéressante 3 ?',
-      reponse:
-        'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Omnis minus labore, impedit veritatis enim itaque iure mollitia nemo ut! Nemo, ducimus. Reiciendis praesentium cupiditate culpa suscipit, dolor maiores quam ipsa.',
-    },
-    {
-      question: 'Une question intéressante 4 ?',
-      reponse:
-        'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Omnis minus labore, impedit veritatis enim itaque iure mollitia nemo ut! Nemo, ducimus. Reiciendis praesentium cupiditate culpa suscipit, dolor maiores quam ipsa.',
-    },
-  ];
+
+  const [qa] = createResource(() => fetchPage('faq'));
+
   onMount(() => {
-    items = document.querySelectorAll('.accordion button') as any;
     const targets = document.querySelectorAll('.reveal');
     targets.forEach(function (target) {
       observer.observe(target);
     });
+  });
+
+  createEffect(() => {
+    if (!qa.loading)
+      items = document.querySelectorAll('.accordion button') as any;
   });
 
   const toggleAccordion = (event: any) => {
@@ -51,30 +46,39 @@ function Faq() {
       <Title>FAQ - Karine Lefort Photographie</Title>
       <div class='container'>
         <h2>Questions récurrentes</h2>
-        <div class='accordion'>
-          <For each={questions}>
-            {(question, index) => {
-              if (index() >= 4) return;
-              return (
-                <div
-                  class='accordion-item reveal'
-                  onClick={(event) => toggleAccordion(event)}
-                >
-                  <button
-                    id={`accordion-button-${index()}`}
-                    aria-expanded='false'
+        <Show
+          when={!qa.loading}
+          fallback={
+            <div class='faq-loader'>
+              <SpiralLoader />
+            </div>
+          }
+        >
+          <div class='accordion'>
+            <For each={qa().question}>
+              {(question: { Question: string; Reponse: string }, index) => {
+                if (index() >= 4) return;
+                return (
+                  <div
+                    class='accordion-item reveal-loaded'
+                    onClick={(event) => toggleAccordion(event)}
                   >
-                    <span class='accordion-title'>{question.question}</span>
-                    <span class='icon' aria-hidden='true'></span>
-                  </button>
-                  <div class='accordion-content'>
-                    <p>{question.reponse}</p>
+                    <button
+                      id={`accordion-button-${index()}`}
+                      aria-expanded='false'
+                    >
+                      <span class='accordion-title'>{question.Question}</span>
+                      <span class='icon' aria-hidden='true'></span>
+                    </button>
+                    <div class='accordion-content'>
+                      <p>{question.Reponse}</p>
+                    </div>
                   </div>
-                </div>
-              );
-            }}
-          </For>
-        </div>
+                );
+              }}
+            </For>
+          </div>
+        </Show>
       </div>
       <div class='reveal'>
         <CtaBanner />
