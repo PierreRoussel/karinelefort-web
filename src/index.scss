@@ -8,8 +8,8 @@
 }
 
 @font-face {
-  font-family: "P22_Cezanne_Pro_Regular";
-  src: url("./assets/fonts/P22_Cezanne_Pro_Regular.ttf") format("truetype");
+  font-family: "d_i_t_r";
+  src: url("./assets/fonts/d_i_t_r.ttf") format("truetype");
   font-weight: normal;
   font-display: swap;
 }
@@ -29,10 +29,10 @@ body {
   font-family: "BriosoPro-Regular";
   font-size: 1.5rem;
   h1 {
-    font-family: "P22_Cezanne_Pro_Regular";
+    font-family: "d_i_t_r";
     color: $primary;
     font-weight: lighter;
-    font-size: 4rem;
+    font-size: 3.5rem;
   }
 
   h2 {
