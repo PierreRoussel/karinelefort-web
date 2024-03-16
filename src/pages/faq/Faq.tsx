@@ -57,7 +57,6 @@ function Faq() {
           <div class='accordion'>
             <For each={qa().question}>
               {(question: { Question: string; Reponse: string }, index) => {
-                if (index() >= 4) return;
                 return (
                   <div
                     class='accordion-item reveal-loaded'
