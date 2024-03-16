@@ -1,6 +1,7 @@
 import { NavLink } from '@solidjs/router';
 import { For } from 'solid-js';
 import { MenuItem } from '../Header';
+import Logo from '../../../../public/logo/KL LOGO NOIR.png';
 
 type SideNavProps = {
   status: boolean;
@@ -17,8 +18,7 @@ const SideNav = (props: SideNavProps) => {
       ></div>
       <div class='side-nav'>
         <span class='side-nav--title'>
-          Karine Lefort <br />
-          Photographie
+          <img style={'height:auto;width:10rem'} src={Logo} alt='' />
         </span>
         <For each={props.menu}>
           {(item) => {

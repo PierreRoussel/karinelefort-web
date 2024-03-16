@@ -21,7 +21,7 @@ function PrivateGaleries() {
   const [info, setInfo] = createSignal('');
   const [loading, setLoading] = createSignal(false);
   const [privateGalery, setPrivateGalery] = createSignal(false);
-  const [liked, setLiked] = createSignal([])
+  const [liked, setLiked] = createSignal([]);
 
   const urlParamsObject: APIParams = {
     publicationState: 'live',
@@ -51,7 +51,6 @@ function PrivateGaleries() {
 
   createEffect(() => {
     if (!galerieItems.loading) {
-
       const targets = document.querySelectorAll('.reveal');
       targets.forEach(function (target) {
         observer.observe(target);
@@ -94,7 +93,10 @@ function PrivateGaleries() {
       <Show when={privateGalery()}>
         <Suspense fallback={<SpiralLoader />}>
           <div class='grid-container'>
-            <For each={galerieItems()?.data.attributes.Photos.data}>
+            <For
+              fallback={<div>Aucune galerie privée actuellement publiée.</div>}
+              each={galerieItems()?.data.attributes.Photos.data}
+            >
               {(photo: any, index) => {
                 return (
                   <div
@@ -107,7 +109,7 @@ function PrivateGaleries() {
                       alt={photo['attributes'].alternativeText}
                       loading='lazy'
                     />
-                    <span className="heart"></span>
+                    <span class='heart'></span>
                   </div>
                 );
               }}

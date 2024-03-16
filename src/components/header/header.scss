@@ -11,6 +11,9 @@
     .navbar__title {
         font-size: 2rem;
         padding: 0.2em;
+        display: flex;
+        align-items: center;
+        justify-content: center;
         color: $n5;
         text-decoration: none;
         font-family: "d_i_t_r";
@@ -170,6 +173,12 @@
             backdrop-filter: blur(5px);
             position: fixed;
             top: 0;
+            .navbar__title {
+                img {
+                    margin-top: 1rem;
+                    height: 7rem!important;
+                }
+            }
         }
     }
 }

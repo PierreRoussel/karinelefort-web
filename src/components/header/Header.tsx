@@ -3,6 +3,7 @@ import { createSignal, For, Show } from 'solid-js';
 import RsPictos from '../rs-pictos/RsPictos';
 import './header.scss';
 import SideNav from './side-nav/SideNav';
+import Logo from '../../../public/logo/KL LOGO NOIR.png';
 
 export type MenuItem = {
   name: string;
@@ -34,13 +35,13 @@ const Header = (props: any) => {
         class='navbar__burger-menu--button'
       ></button>
       <a href='/' class='navbar__title'>
-        Karine Lefort Photographie
+        <img style={'height:10rem;width:auto'} src={Logo} alt='' />
       </a>
       <div class='navbar__horizontal--container'>
         <div class='horizontal-nav'>
           <Show when={!props.scrolled}>
             <a href='/' class='navbar__title'>
-              Karine Lefort Photographie
+              <img src={Logo} style={'height:8rem;width:auto'} alt='' />
             </a>
           </Show>
           <For each={menu}>
