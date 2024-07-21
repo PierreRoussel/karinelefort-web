@@ -9,8 +9,6 @@
     isolation: isolate;
     z-index: 10000;
     .navbar__title {
-        font-size: 2rem;
-        padding: 0.2em;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -230,6 +228,19 @@
         .navbar__horizontal--container {
             display: block;
             width: 100%;
+        }
+    }
+}
+@media screen and (max-width: 1420px) {
+    .navbar {
+        &.nav-stacked {
+            .navbar__title {
+                img {
+                    width: 100px!important;
+                    height: 100%!important;
+                    object-fit: contain;
+                }
+            }
         }
     }
 }

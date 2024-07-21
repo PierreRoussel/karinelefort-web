@@ -8,8 +8,9 @@ const Footer: Component = () => {
       <div class='footer__content'>
         <p class='content__left'>
           Studio <br />
-          20 chemin de Virol <br />
-          24200 Proissans
+          12 rue de l'abbaye des augustins <br />
+          24220 Saint-Cyprien <br />
+          n° <a href="tel:+0602203738">06 02 20 37 38</a>
         </p>
         <p class='content__center'>
           Pour chaque contact, veuillez me <br />
