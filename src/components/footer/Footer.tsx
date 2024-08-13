@@ -10,7 +10,7 @@ const Footer: Component = () => {
           Studio <br />
           12 rue de l'abbaye des augustins <br />
           24220 Saint-Cyprien <br />
-          n° <a href="tel:+0602203738">06 02 20 37 38</a>
+          n° <a href='tel:+0602203738'>06 02 20 37 38</a>
         </p>
         <p class='content__center'>
           Pour chaque contact, veuillez me <br />
@@ -23,11 +23,13 @@ const Footer: Component = () => {
           Me suivre
           <div class='separator'></div>
           <div class='content__right--rs-container'>
-            <RsPictos pictoHeights="25"/>
+            <RsPictos pictoHeights='25' />
           </div>
         </div>
       </div>
-      <span class='footer__copyright'>© Karinelefortphotographie - 2022</span>
+      <span class='footer__copyright'>
+        © Karinelefortphotographie - {new Date().getFullYear()}
+      </span>
     </footer>
   );
 };
