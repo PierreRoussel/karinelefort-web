@@ -82,6 +82,7 @@ const Home = () => {
   const [resumee, setResumee] = createSignal({});
   const [ctaWrapper, setCtaWrapper] = createSignal([] as CtaWrapper[]);
   const [carouselItems, setCarouselItems] = createSignal([]);
+  const [irisCarouselItems, setIrisCarouselItems] = createSignal([]);
 
   createEffect(() => {
     if (!homepage.loading) {
@@ -93,7 +94,7 @@ const Home = () => {
       setBubbles([
         { title: 'Mes horaires', text: homepage()?.['Horaires'] },
         {
-          title: 'Mes horaires',
+          title: 'Informations de réservation',
           text: homepage()?.['informationsReservations'],
         },
         {
@@ -115,6 +116,12 @@ const Home = () => {
           return item.attributes.url;
         })
       );
+
+      const iris: any = Object.keys(homepage()?.['irisCarousel']).map(
+        (key) => homepage()?.['irisCarousel'][key]
+      );
+      iris.splice(0, 1);
+      setIrisCarouselItems(iris);
 
       setCtaWrapper(
         homepage()?.['bookmark'].map((item: any) => {
@@ -179,7 +186,7 @@ const Home = () => {
           <Resumee resumee={resumee()} />
         </div>
         <div class='reveal'>
-          <IrisTestimonials />
+          <IrisTestimonials iris={irisCarouselItems()} />
         </div>
         <div class='reveal' style={'margin-bottom:0'}>
           <TextBanner />
