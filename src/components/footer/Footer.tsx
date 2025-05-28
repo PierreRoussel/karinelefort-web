@@ -8,7 +8,7 @@ const Footer: Component = () => {
       <div class='footer__content'>
         <p class='content__left'>
           Studio <br />
-          12 rue de l'abbaye des augustins <br />
+          36 rue du priolat <br />
           24220 Saint-Cyprien <br />
           n° <a href='tel:+0602203738'>06 02 20 37 38</a>
         </p>

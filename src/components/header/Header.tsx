@@ -4,6 +4,7 @@ import RsPictos from '../rs-pictos/RsPictos';
 import './header.scss';
 import SideNav from './side-nav/SideNav';
 import Logo from '../../../public/logo/KL LOGO NOIR.png';
+import Portraitiste from '../../../public/logo/portraitiste.png';
 
 export type MenuItem = {
   name: string;
@@ -69,8 +70,9 @@ const Header = (props: any) => {
             }}
           </For>
           <RsPictos pictoHeights='25' />
+          <img src={Portraitiste} style={'height:4.8rem;width:auto'} alt='' />
         </div>
-      </div>
+      </div> 
       <div class='navbar__side--container'>
         <SideNav
           status={sideNavStatus()}
